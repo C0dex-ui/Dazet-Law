@@ -160,10 +160,13 @@ img { max-width: 100%; height: auto; display: block; }
   letter-spacing: 1px;
   display: inline-flex;
   align-items: center;
+  justify-content: center; /* Center button text and icon content */
   gap: 8px;
   transition: all 0.2s;
   border: none;
   cursor: pointer;
+  white-space: nowrap;
+  min-width: 250px; /* Force consistent size for matching layout buttons */
 }
 .btn-bronze:hover {
   background: #9A7B48;
@@ -181,10 +184,12 @@ img { max-width: 100%; height: auto; display: block; }
   letter-spacing: 1px;
   display: inline-flex;
   align-items: center;
+  justify-content: center; /* Center button text content */
   gap: 8px;
   transition: all 0.2s;
   cursor: pointer;
   background: transparent;
+  min-width: 250px; /* Force consistent size for matching layout buttons */
 }
 .btn-outline:hover {
   background: #B5935A;

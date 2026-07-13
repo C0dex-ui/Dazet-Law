@@ -560,7 +560,7 @@ img { max-width: 100%; height: auto; display: block; }
   position: relative;
   z-index: 3;
 }
-.column-banner i {
+.column-banner-inner > i.ph-quotes {
   font-size: 3rem;
   color: #B5935A;
   margin-bottom: 20px;
@@ -576,8 +576,8 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .column-banner-cta {
   background: #B5935A;
-  color: #fff;
-  padding: 14px 32px;
+  color: #fff !important;
+  padding: 12px 28px; /* Reduced padding to match standard button height */
   border-radius: 4px;
   font-weight: 700;
   font-size: 0.85rem;
@@ -587,6 +587,12 @@ img { max-width: 100%; height: auto; display: block; }
   align-items: center;
   gap: 8px;
   transition: all 0.2s;
+}
+.column-banner-cta i {
+  color: #fff !important; /* Force call icon to be white and fully visible */
+  font-size: 1.1rem !important; /* Restore normal icon scale */
+  margin-bottom: 0 !important; /* Reset bottom margin */
+  display: inline-block !important; /* Reset display block layout */
 }
 .column-banner-cta:hover {
   background: #9A7B48;

@@ -1,0 +1,294 @@
+﻿/** Rest of site HTML (unchanged from prior static page, hero/header removed) */
+export const restOfSiteHtml = `<!-- Trust Pillars Strip -->
+  <section class="section-alt" style="padding: 60px 24px;">
+    <div class="section" style="padding: 0;">
+      <div class="pillars-row-grid">
+        <div class="pillar-card">
+          <i class="ph ph-scales"></i>
+          <h3>Personal Representation</h3>
+          <p>You speak directly with Chelsea. No layers, no case transfers, just direct legal protection.</p>
+        </div>
+        <div class="pillar-card">
+          <i class="ph ph-gavel"></i>
+          <h3>Decade of Experience</h3>
+          <p>Proven track record representing clients in local Louisiana courts and insurance claims.</p>
+        </div>
+        <div class="pillar-card">
+          <i class="ph ph-shield-check"></i>
+          <h3>Localized Guard</h3>
+          <p>Deep familiarity with local regulations, court personnel, and insurance providers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practice Areas Section -->
+  <section class="section" id="practice">
+    <div class="section-watermark practice-watermark">PRACTICE</div>
+    <div class="section-header">
+      <h2>Practice Areas</h2>
+      <p>Providing custom legal defense, planning, and transactional protection</p>
+      <div class="gold-line"></div>
+    </div>
+    <div class="practice-grid">
+      <div class="practice-card">
+          <div class="practice-card-img">
+            <img src="/assets/personal_injury.png" alt="Personal Injury">
+          </div>
+          <div class="practice-card-body">
+            <h3>Personal Injury</h3>
+            <ul><li><i class="ph ph-caret-right"></i> Auto Accidents</li><li><i class="ph ph-caret-right"></i> Slip & Fall</li><li><i class="ph ph-caret-right"></i> Workers' Compensation</li><li><i class="ph ph-caret-right"></i> Insurance Claims</li></ul>
+          </div>
+        </div><div class="practice-card">
+          <div class="practice-card-img">
+            <img src="/assets/estate_planning.png" alt="Estate Planning & Successions">
+          </div>
+          <div class="practice-card-body">
+            <h3>Estate Planning & Successions</h3>
+            <ul><li><i class="ph ph-caret-right"></i> Wills & Trusts</li><li><i class="ph ph-caret-right"></i> Probate</li><li><i class="ph ph-caret-right"></i> Power of Attorney</li><li><i class="ph ph-caret-right"></i> Successions</li></ul>
+          </div>
+        </div><div class="practice-card">
+          <div class="practice-card-img">
+            <img src="/assets/business_law.png" alt="Business & Commercial">
+          </div>
+          <div class="practice-card-body">
+            <h3>Business & Commercial</h3>
+            <ul><li><i class="ph ph-caret-right"></i> LLC Formation</li><li><i class="ph ph-caret-right"></i> Contracts</li><li><i class="ph ph-caret-right"></i> Business Disputes</li></ul>
+          </div>
+        </div><div class="practice-card">
+          <div class="practice-card-img">
+            <img src="/assets/criminal_defense.png" alt="Criminal Defense">
+          </div>
+          <div class="practice-card-body">
+            <h3>Criminal Defense</h3>
+            <ul><li><i class="ph ph-caret-right"></i> DUI/DWI</li><li><i class="ph ph-caret-right"></i> Traffic Tickets</li><li><i class="ph ph-caret-right"></i> Expungements</li><li><i class="ph ph-caret-right"></i> Criminal Defense</li></ul>
+          </div>
+        </div><div class="practice-card">
+          <div class="practice-card-img">
+            <img src="/assets/family_law.png" alt="Family Law">
+          </div>
+          <div class="practice-card-body">
+            <h3>Family Law</h3>
+            <ul><li><i class="ph ph-caret-right"></i> Simple Divorce</li><li><i class="ph ph-caret-right"></i> Prenuptial Agreements</li></ul>
+          </div>
+        </div><div class="practice-card">
+          <div class="practice-card-img">
+            <img src="/assets/real_estate.png" alt="Real Estate & Notary">
+          </div>
+          <div class="practice-card-body">
+            <h3>Real Estate & Notary</h3>
+            <ul><li><i class="ph ph-caret-right"></i> Notary Services</li><li><i class="ph ph-caret-right"></i> Real Estate Closings</li></ul>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Stats Row Section -->
+  <section class="stats-section">
+    <div class="stats-inner">
+      <div class="stat-box">
+        <h4>10+</h4>
+        <p>Years in Practice</p>
+      </div>
+      <div class="stat-box">
+        <h4>99%</h4>
+        <p>Client Satisfaction</p>
+      </div>
+      <div class="stat-box">
+        <h4>1-on-1</h4>
+        <p>Direct Interaction</p>
+      </div>
+      <div class="stat-box">
+        <h4>100%</h4>
+        <p>Covington Dedicated</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards & Affiliations Badge Strip -->
+  <section class="section" style="padding: 50px 24px; background: #fff; border-bottom: 1px solid rgba(181, 147, 90, 0.15); position: relative; z-index: 2;">
+    <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+      <h3 style="font-family: 'Cinzel', serif; font-size: 0.9rem; font-weight: 700; color: #5A6270; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 35px;">Awards & Professional Affiliations</h3>
+      <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 30px 45px;">
+        <div class="badge-item"><img src="/assets/image_1.png" alt="Louisiana State Bar Association"></div>
+        <div class="badge-item"><img src="/assets/image_5.png" alt="Inside New Orleans Elite Lawyers 2024"></div>
+        <div class="badge-item"><img src="/assets/image_6.png" alt="Best of St. Tammany 2025 Winner"></div>
+        <div class="badge-item"><img src="/assets/image_7.png" alt="Lawyers of Distinction"></div>
+        <div class="badge-item"><img src="/assets/image_8.png" alt="Marquis Who's Who"></div>
+        <div class="badge-item"><img src="/assets/image_11.jpg" alt="North Shore Forty Under 40"></div>
+        <div class="badge-item"><img src="/assets/image_13.jpg" alt="CityBusiness Leadership in Law 2025"></div>
+        <div class="badge-item"><img src="/assets/image_15.png" alt="Louisiana Association for Justice"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Attorney Section (Meet Chelsea Dazet) -->
+  <section class="section" id="attorney">
+    <div class="section-watermark attorney-watermark">ATTORNEY</div>
+    <div class="attorney-grid">
+      <div class="attorney-img-wrapper">
+        <div class="attorney-img-border"></div>
+        <div class="attorney-img">
+          <img src="/assets/348s.jpg_202607312150.jpeg" alt="Chelsea Dazet, Attorney at Law">
+        </div>
+      </div>
+      <div class="attorney-content">
+        <span class="attorney-title">Principal & Lead Advocate</span>
+        <h3>Chelsea Dazet</h3>
+        <div class="attorney-bio">
+          <p>Chelsea Dazet has over a decade of experience litigating in Louisiana courts. She is confident that your attorney-client relationship will be productive, direct, and worthwhile.</p>
+          <p>She understands that facing personal injury, planning a family estate, or navigating business disputes can feel overwhelming. Her mission is to strip away the intimidation of the legal system and offer straightforward, compassionate representation that gets results.</p>
+          <p>Quite simply, Chelsea will not be satisfied until you are satisfied with your representation and your rights are fully protected.</p>
+        </div>
+        <a href="mailto:chelsea@dazetlaw.com" class="attorney-email">
+          <i class="ph ph-envelope-simple"></i> chelsea@dazetlaw.com
+        </a>
+        <div>
+          <a href="tel:985-249-6475" class="btn-bronze"><i class="ph ph-phone"></i> Call for Free Case Evaluation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Column Quote Banner -->
+  <section class="column-banner">
+    <div class="column-banner-bg">
+      <img src="/assets/hero_bg_cols.png" alt="Law Office Library">
+    </div>
+    <div class="column-banner-overlay"></div>
+    <div class="column-banner-inner">
+      <i class="ph ph-quotes"></i>
+      <h3>"No one should be intimidated by the legal system. Let Chelsea provide you with the personal representation and protection your case requires."</h3>
+      <a href="tel:985-249-6475" class="column-banner-cta"><i class="ph ph-phone"></i> Free Consultation 985-249-6475</a>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section" id="testimonials">
+    <div class="section-watermark testimonials-watermark">TESTIMONIALS</div>
+    <div class="section-header">
+      <h2>What Our Clients Say</h2>
+      <p>Feedback and support notes from the Covington & Mandeville communities</p>
+      <div class="gold-line"></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <i class="ph ph-star-fill"></i>
+          <i class="ph ph-star-fill"></i>
+          <i class="ph ph-star-fill"></i>
+          <i class="ph ph-star-fill"></i>
+          <i class="ph ph-star-fill"></i>
+        </div>
+        <p>"Struggling with insurance companies after my auto accident was stressful. Chelsea stepped in, managed everything directly, and fought until we got a fair payout. Highly recommend her services."</p>
+        <span class="testimonial-author">Personal Injury Client</span>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <i class="ph ph-star-fill"></i>
+          <i class="ph ph-star-fill"></i>
+          <i class="ph ph-star-fill"></i>
+          <i class="ph ph-star-fill"></i>
+          <i class="ph ph-star-fill"></i>
+        </div>
+        <p>"We hired Chelsea to draw up our family wills and powers of attorney. She made the succession planning process extremely clear and comfortable. Wonderful attorney to work with."</p>
+        <span class="testimonial-author">Estate Planning Client</span>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <i class="ph ph-star-fill"></i>
+          <i class="ph ph-star-fill"></i>
+          <i class="ph ph-star-fill"></i>
+          <i class="ph ph-star-fill"></i>
+          <i class="ph ph-star-fill"></i>
+        </div>
+        <p>"Chelsea set up my commercial LLC and drafted our primary partnership agreements. Having an experienced trial attorney draft contracts gives me huge peace of mind for my business."</p>
+        <span class="testimonial-author">Business Owner Client</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Evaluation Form Section -->
+  <section class="section-alt" id="contact">
+    <div class="section">
+      <div class="contact-layout">
+        <div class="contact-info">
+          <h3>Free Case Evaluation</h3>
+          <p>Get in touch with Chelsea Dazet directly. Fill out this secure consultation request, or dial our Covington office for immediate protection.</p>
+          <ul class="contact-info-list">
+            <li><i class="ph ph-phone-call"></i> <a href="tel:985-249-6475">985-249-6475</a></li>
+            <li><i class="ph ph-envelope-simple-open"></i> <a href="mailto:chelsea@dazetlaw.com">chelsea@dazetlaw.com</a></li>
+            <li><i class="ph ph-map-pin-line"></i> 221 E. Kirkland St., Covington, LA 70433</li>
+            <li><i class="ph ph-clock"></i> Mon-Fri: 9:00am - 5:00pm</li>
+          </ul>
+        </div>
+        <div class="evaluation-form">
+          <h3>Request Case Evaluation</h3>
+          <p>All inquiries are completely confidential and private</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="Full name">
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="Your phone number">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="Your email address">
+          </div>
+          <div class="form-group">
+            <label>Practice Area of Interest</label>
+            <select>
+              <option>Personal Injury / Collision Claims</option>
+              <option>Estate Planning / Wills / Successions</option>
+              <option>Business Formations & Disputes</option>
+              <option>Criminal Defense / DWI / Traffic</option>
+              <option>Family Law / Simple Divorce</option>
+              <option>Real Estate & Notary Services</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message / Case Details</label>
+            <textarea rows="4" placeholder="Briefly describe your case or planning needs..."></textarea>
+          </div>
+          <button class="btn-submit"><i class="ph ph-paper-plane-tilt"></i> Send Evaluation Request</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-cols">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <img src="/logo.png" alt="Dazet Law Emblem">
+          <span class="sr-only">Dazet Law</span>
+        </div>
+        <p>Personal representation and personalized legal protection for clients in Covington, Mandeville, and across St. Tammany Parish, Louisiana.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Menu</h3>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#practice">Practice Areas</a></li>
+          <li><a href="#attorney">Meet Chelsea</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <h3>Contact</h3>
+        <p><i class="ph ph-phone"></i> 985-249-6475</p>
+        <p><i class="ph ph-envelope"></i> chelsea@dazetlaw.com</p>
+        <p><i class="ph ph-map-pin"></i> 221 E. Kirkland St., Covington, LA 70433</p>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <p>&copy; 2026 Dazet Law. All rights reserved. The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation.</p>
+    </div>
+  </footer>
+`;

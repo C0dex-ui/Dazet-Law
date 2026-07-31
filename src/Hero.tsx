@@ -192,7 +192,7 @@ export default function Hero() {
             horizontal ~ right third, vertical ~ lower third (beside legs/stride).
           */}
           <div
-            className="anim-fade-up pointer-events-auto absolute bottom-[6vh] right-[6vw] w-[min(38vw,420px)] lg:bottom-[5vh] lg:right-[8vw] lg:w-[min(36vw,440px)]"
+            className="anim-fade-up pointer-events-auto absolute bottom-[12vh] right-[6vw] w-[min(38vw,420px)] lg:bottom-[11vh] lg:right-[8vw] lg:w-[min(36vw,440px)]"
             style={{ animationDelay: '1300ms' }}
           >
             <p className="font-cinzel text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#B5935A]">

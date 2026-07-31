@@ -32,6 +32,17 @@ body {
   animation: dh-marquee 30s linear infinite;
 }
 
+/* Brand cream (#efeee9) marquee type — light-mode readable watermark */
+.dh-marquee-cream {
+  color: #efeee9;
+  -webkit-text-stroke: 1px rgba(181, 147, 90, 0.28);
+  paint-order: stroke fill;
+  text-shadow:
+    0 0 0.5px rgba(181, 147, 90, 0.4),
+    0 1px 0 rgba(181, 147, 90, 0.12),
+    0 2px 24px rgba(181, 147, 90, 0.08);
+}
+
 @keyframes dh-fade-in {
   from { opacity: 0; }
   to { opacity: 1; }

@@ -37,9 +37,11 @@ export default function Hero() {
   const portraitScale = useTransform(scrollYProgress, [0, 0.6, 1], [1, 1.08, 0.94])
   const portraitY = useTransform(scrollYProgress, [0, 1], ['0vh', '-6vh'])
   const portraitRotateX = useTransform(scrollYProgress, [0, 1], [0, 5])
-  const marqueeOpacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.7, 0.3])
+  // Keep marquee readable on light cream field
+  const marqueeOpacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.85, 0.55])
   const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '18%'])
-  const chromeOpacity = useTransform(scrollYProgress, [0.5, 1], [1, 0.4])
+  // CTAs stay trustworthy — never fully fade out
+  const chromeOpacity = useTransform(scrollYProgress, [0.5, 1], [1, 0.72])
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
@@ -54,20 +56,21 @@ export default function Hero() {
     <section
       ref={heroRef}
       id="home"
-      className="relative h-[150vh] w-full bg-[#0a0a0a]"
+      className="relative h-[150vh] w-full bg-cream"
     >
-      {/* Sticky full-viewport composition */}
-      <div className="sticky top-0 h-[100dvh] w-full overflow-hidden">
+      {/* Sticky full-viewport composition — light mode */}
+      <div className="sticky top-0 h-[100dvh] w-full overflow-hidden bg-cream">
         {/* BG z-0 */}
         <motion.div
-          className="anim-fade-in absolute inset-0 z-0 bg-[#0a0a0a]"
+          className="anim-fade-in absolute inset-0 z-0 bg-cream"
           style={scrollMotion ? { y: bgY } : undefined}
           aria-hidden
         >
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_80%,rgba(181,147,90,0.14)_0%,transparent_70%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_80%,rgba(181,147,90,0.12)_0%,transparent_70%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(250,248,245,0.4)_0%,transparent_40%,rgba(239,238,233,0.9)_100%)]" />
         </motion.div>
 
-        {/* Marquee z-10 */}
+        {/* Marquee z-10 — brand cream type as soft watermark on light field */}
         <motion.div
           className="anim-fade-up absolute inset-x-0 top-[16vh] z-10 overflow-hidden sm:top-[14vh]"
           style={{
@@ -75,27 +78,32 @@ export default function Hero() {
             ...(scrollMotion ? { opacity: marqueeOpacity } : {}),
           }}
         >
-          <div className="dh-marquee-track flex w-max whitespace-nowrap font-cinzel text-[16vh] font-bold leading-none text-cream sm:text-[26vh]">
-            <span className="pr-[6vw]">Chelsea&nbsp;&mdash;&nbsp;Dazet&nbsp;</span>
-            <span className="pr-[6vw]">Chelsea&nbsp;&mdash;&nbsp;Dazet&nbsp;</span>
+          <div className="dh-marquee-track flex w-max whitespace-nowrap font-cinzel text-[16vh] font-bold leading-none sm:text-[26vh]">
+            {/* Cream fill + soft bronze edge so cream type reads on light mode */}
+            <span className="dh-marquee-cream pr-[6vw]">
+              Chelsea&nbsp;&mdash;&nbsp;Dazet&nbsp;
+            </span>
+            <span className="dh-marquee-cream pr-[6vw]">
+              Chelsea&nbsp;&mdash;&nbsp;Dazet&nbsp;
+            </span>
           </div>
         </motion.div>
 
-        {/* Cream rule z-10 */}
+        {/* Cream/bronze rule z-10 */}
         <div
-          className="anim-line absolute inset-x-6 bottom-[5.5rem] z-10 h-0.5 origin-left bg-cream sm:inset-x-10 sm:bottom-28"
+          className="anim-line absolute inset-x-6 bottom-[5.5rem] z-10 h-0.5 origin-left bg-[#B5935A]/50 sm:inset-x-10 sm:bottom-28"
           aria-hidden
         />
 
-        {/* Desktop footer z-10 (behind portrait) */}
+        {/* Desktop footer z-10 (behind portrait) — dark ink on light */}
         <motion.div
-          className="absolute inset-x-0 bottom-0 z-10 hidden items-end justify-between px-6 pb-5 font-lora text-xs leading-relaxed text-cream sm:flex sm:px-10 sm:pb-8 sm:text-sm"
+          className="absolute inset-x-0 bottom-0 z-10 hidden items-end justify-between px-6 pb-5 font-lora text-xs leading-relaxed text-[#1E2530] sm:flex sm:px-10 sm:pb-8 sm:text-sm"
           style={scrollMotion ? { opacity: chromeOpacity } : undefined}
         >
           <div className="anim-fade-up" style={{ animationDelay: '1400ms' }}>
             <p>Personal counsel.</p>
             <p>Real protection.</p>
-            <p>10+ years · Louisiana courts</p>
+            <p className="text-[#5A6270]">10+ years · Louisiana courts</p>
           </div>
           <div
             className="anim-fade-up text-right"
@@ -103,11 +111,11 @@ export default function Hero() {
           >
             <p>Covington &amp; Mandeville</p>
             <p>
-              <a href="#contact" className="text-cream transition-opacity duration-300 hover:opacity-60">
+              <a href="#contact" className="text-[#B5935A] transition-opacity duration-300 hover:opacity-60">
                 Free Consultation
               </a>
-              {' · '}
-              <a href="tel:985-249-6475" className="text-cream transition-opacity duration-300 hover:opacity-60">
+              <span className="text-[#5A6270]"> · </span>
+              <a href="tel:985-249-6475" className="text-[#1E2530] transition-opacity duration-300 hover:opacity-60">
                 985-249-6475
               </a>
             </p>
@@ -136,19 +144,19 @@ export default function Hero() {
             <img
               src={PORTRAIT}
               alt="Chelsea Dazet, Attorney at Law"
-              className="h-full max-h-[100dvh] w-auto max-w-[min(90vw,680px)] object-contain object-[center_20%] drop-shadow-[0_28px_40px_rgba(0,0,0,0.4)]"
+              className="h-full max-h-[100dvh] w-auto max-w-[min(90vw,680px)] object-contain object-[center_20%] drop-shadow-[0_22px_36px_rgba(18,24,32,0.14)]"
             />
           </motion.div>
         </div>
 
-        {/* Header chrome z-30 */}
+        {/* Header chrome z-30 — dark on cream */}
         <motion.header
           className="absolute inset-x-0 top-0 z-30 flex items-start justify-between px-6 pt-6 sm:px-10 sm:pt-8"
           style={scrollMotion ? { opacity: chromeOpacity } : undefined}
         >
           <a
             href="#home"
-            className="anim-fade-up font-cinzel text-lg font-bold tracking-wide text-cream"
+            className="anim-fade-up font-cinzel text-lg font-bold tracking-wide text-[#121820]"
             style={{ animationDelay: '800ms' }}
           >
             Dazet Law
@@ -156,7 +164,7 @@ export default function Hero() {
 
           <div className="hidden items-start gap-16 sm:flex lg:gap-24">
             <span
-              className="anim-fade-up font-cinzel text-sm text-cream"
+              className="anim-fade-up font-cinzel text-sm text-[#5A6270]"
               style={{ animationDelay: '900ms' }}
             >
               2026
@@ -167,7 +175,7 @@ export default function Hero() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="anim-fade-up text-cream transition-opacity duration-300 hover:opacity-60"
+                  className="anim-fade-up text-[#1E2530] transition-opacity duration-300 hover:opacity-60"
                   style={{ animationDelay: `${1000 + i * 80}ms` }}
                 >
                   {item.label}
@@ -180,7 +188,7 @@ export default function Hero() {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="anim-fade-up text-cream transition-opacity duration-300 hover:opacity-60"
+                  className="anim-fade-up text-[#1E2530] transition-opacity duration-300 hover:opacity-60"
                   style={{ animationDelay: `${1150 + i * 80}ms` }}
                 >
                   {item.label}
@@ -192,13 +200,13 @@ export default function Hero() {
 
         {/* Mobile footer z-30 */}
         <motion.div
-          className="absolute inset-x-0 bottom-0 z-30 flex items-end justify-between px-6 pb-5 font-lora text-xs leading-relaxed text-cream sm:hidden"
+          className="absolute inset-x-0 bottom-0 z-30 flex items-end justify-between px-6 pb-5 font-lora text-xs leading-relaxed text-[#1E2530] sm:hidden"
           style={scrollMotion ? { opacity: chromeOpacity } : undefined}
         >
           <div className="anim-fade-up" style={{ animationDelay: '1400ms' }}>
             <p>Personal counsel.</p>
             <p>Real protection.</p>
-            <p>10+ years · Louisiana courts</p>
+            <p className="text-[#5A6270]">10+ years · Louisiana courts</p>
           </div>
           <div
             className="anim-fade-up text-right"
@@ -206,7 +214,7 @@ export default function Hero() {
           >
             <p>Covington &amp; Mandeville</p>
             <p>
-              <a href="tel:985-249-6475" className="text-cream">
+              <a href="tel:985-249-6475" className="text-[#B5935A]">
                 985-249-6475
               </a>
             </p>
@@ -224,7 +232,7 @@ export default function Hero() {
         >
           <span className="relative h-4 w-6">
             <span
-              className="absolute left-0 top-0 h-px w-full bg-cream transition-all duration-500"
+              className="absolute left-0 top-0 h-px w-full bg-[#121820] transition-all duration-500"
               style={{
                 transitionTimingFunction: drawerEase,
                 transform: menuOpen
@@ -233,11 +241,11 @@ export default function Hero() {
               }}
             />
             <span
-              className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-cream transition-opacity duration-300"
+              className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-[#121820] transition-opacity duration-300"
               style={{ opacity: menuOpen ? 0 : 1 }}
             />
             <span
-              className="absolute bottom-0 left-0 h-px w-full bg-cream transition-all duration-500"
+              className="absolute bottom-0 left-0 h-px w-full bg-[#121820] transition-all duration-500"
               style={{
                 transitionTimingFunction: drawerEase,
                 transform: menuOpen

@@ -234,6 +234,9 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .hero-office-img-wrapper {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 .hero-office-img {
   width: 100%;
@@ -249,6 +252,26 @@ img { max-width: 100%; height: auto; display: block; }
   height: 100%;
   object-fit: cover;
   object-position: center top; /* Prevent head crop by aligning to top */
+}
+/* Real walking cutout from dazetlaw.com — no crop box, full figure */
+.hero-office-img.hero-portrait-cutout {
+  height: auto;
+  max-height: 620px;
+  max-width: 420px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  overflow: visible;
+}
+.hero-office-img.hero-portrait-cutout img {
+  width: 100%;
+  height: auto;
+  max-height: 620px;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 18px 28px rgba(18, 24, 32, 0.18));
 }
 .hero-office-border {
   position: absolute;
@@ -498,6 +521,8 @@ img { max-width: 100%; height: auto; display: block; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Real smiling photo from dazetlaw.com — keep face centered, no AI crop shift */
+  object-position: 52% 22%;
 }
 .attorney-content {
   text-align: left;
@@ -879,6 +904,13 @@ img { max-width: 100%; height: auto; display: block; }
   .hero-office-img-wrapper {
     max-width: 500px;
     margin: 0 auto;
+  }
+  .hero-office-img.hero-portrait-cutout {
+    max-width: 320px;
+    max-height: 480px;
+  }
+  .hero-office-img.hero-portrait-cutout img {
+    max-height: 480px;
   }
   .pillars-row-grid {
     grid-template-columns: 1fr;

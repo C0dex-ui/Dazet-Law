@@ -37,8 +37,8 @@ export default function Hero() {
   const portraitScale = useTransform(scrollYProgress, [0, 0.6, 1], [1, 1.08, 0.94])
   const portraitY = useTransform(scrollYProgress, [0, 1], ['0vh', '-6vh'])
   const portraitRotateX = useTransform(scrollYProgress, [0, 1], [0, 5])
-  // Keep marquee readable on light cream field
-  const marqueeOpacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.85, 0.55])
+  // Keep marquee visible on light cream field through the scroll
+  const marqueeOpacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.9, 0.7])
   const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '18%'])
   // CTAs stay trustworthy — never fully fade out
   const chromeOpacity = useTransform(scrollYProgress, [0.5, 1], [1, 0.72])

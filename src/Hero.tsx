@@ -91,9 +91,9 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ——— Portrait (hero focus) ——— */}
+        {/* ——— Portrait (hero focus) — full original scale ——— */}
         <div
-          className="pointer-events-none absolute inset-0 z-20 flex items-end justify-center pb-6 sm:pb-8"
+          className="pointer-events-none absolute inset-0 z-20 flex items-end justify-center"
           style={{ perspective: 1400 }}
         >
           <motion.div
@@ -113,7 +113,7 @@ export default function Hero() {
             <img
               src={PORTRAIT}
               alt="Chelsea Dazet, Attorney at Law"
-              className="h-full max-h-[calc(100dvh-5rem)] w-auto max-w-[min(88vw,560px)] object-contain object-[center_12%] drop-shadow-[0_20px_40px_rgba(18,24,32,0.12)]"
+              className="h-full max-h-[100dvh] w-auto max-w-[min(90vw,680px)] object-contain object-[center_20%] drop-shadow-[0_22px_36px_rgba(18,24,32,0.14)]"
             />
           </motion.div>
         </div>

@@ -149,52 +149,68 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Header chrome z-30 — dark on cream */}
+        {/* Header chrome z-30 — horizontal nav, left-aligned + compact CTA */}
         <motion.header
-          className="absolute inset-x-0 top-0 z-30 flex items-start justify-between px-6 pt-6 sm:px-10 sm:pt-8"
+          className="absolute inset-x-0 top-0 z-30 flex items-center justify-between gap-4 px-6 pt-6 sm:px-10 sm:pt-8"
           style={scrollMotion ? { opacity: chromeOpacity } : undefined}
         >
-          <a
-            href="#home"
-            className="anim-fade-up font-cinzel text-lg font-bold tracking-wide text-[#121820]"
-            style={{ animationDelay: '800ms' }}
-          >
-            Dazet Law
-          </a>
+          <div className="flex min-w-0 flex-1 items-center gap-5 lg:gap-8">
+            <a
+              href="#home"
+              className="anim-fade-up shrink-0 font-cinzel text-lg font-bold tracking-wide text-[#121820]"
+              style={{ animationDelay: '800ms' }}
+            >
+              Dazet Law
+            </a>
 
-          <div className="hidden items-start gap-16 sm:flex lg:gap-24">
             <span
-              className="anim-fade-up font-cinzel text-sm text-[#5A6270]"
+              className="anim-fade-up hidden h-4 w-px shrink-0 bg-[#B5935A]/35 sm:block"
+              style={{ animationDelay: '900ms' }}
+              aria-hidden
+            />
+
+            <span
+              className="anim-fade-up hidden shrink-0 font-cinzel text-xs tracking-wide text-[#5A6270] sm:inline"
               style={{ animationDelay: '900ms' }}
             >
               2026
             </span>
 
-            <nav className="flex flex-col gap-0.5 text-sm font-lora" aria-label="Primary">
-              {NAV.map((item, i) => (
+            {/* Primary nav — horizontal, left cluster */}
+            <nav
+              className="anim-fade-up hidden min-w-0 items-center gap-4 font-lora text-[0.8rem] font-medium text-[#1E2530] sm:flex lg:gap-6"
+              aria-label="Primary"
+              style={{ animationDelay: '1000ms' }}
+            >
+              {NAV.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="anim-fade-up text-[#1E2530] transition-opacity duration-300 hover:opacity-60"
-                  style={{ animationDelay: `${1000 + i * 80}ms` }}
+                  className="whitespace-nowrap transition-opacity duration-300 hover:opacity-60"
                 >
                   {item.label}
                 </a>
               ))}
             </nav>
+          </div>
 
-            <nav className="flex flex-col gap-0.5 text-sm font-lora" aria-label="Connect">
-              {CONNECT.map((item, i) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="anim-fade-up text-[#1E2530] transition-opacity duration-300 hover:opacity-60"
-                  style={{ animationDelay: `${1150 + i * 80}ms` }}
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
+          {/* Right: compact consult CTA (readable, trustworthy) */}
+          <div
+            className="anim-fade-up hidden shrink-0 items-center gap-4 sm:flex"
+            style={{ animationDelay: '1150ms' }}
+          >
+            <a
+              href="mailto:chelsea@dazetlaw.com"
+              className="hidden font-lora text-[0.8rem] text-[#5A6270] transition-opacity duration-300 hover:opacity-60 lg:inline"
+            >
+              Email
+            </a>
+            <a
+              href="tel:985-249-6475"
+              className="inline-flex items-center gap-2 rounded-sm bg-[#B5935A] px-3.5 py-2 font-cinzel text-[0.7rem] font-bold uppercase tracking-wide text-white transition-opacity duration-300 hover:opacity-90"
+            >
+              Free Consultation
+            </a>
           </div>
         </motion.header>
 

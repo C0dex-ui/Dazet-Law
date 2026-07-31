@@ -179,81 +179,76 @@ export default function Hero() {
           </div>
         </motion.header>
 
-        {/* ——— Caption plate: mid-height, beside the portrait (desktop) ——— */}
+        {/* ——— Mid-height copy beside portrait (no card) ——— */}
         <motion.div
           className="pointer-events-none absolute inset-0 z-30 hidden items-center sm:flex"
           style={scrollMotion ? { opacity: captionOpacity } : undefined}
         >
-          <div className="mx-auto grid w-full max-w-[1180px] grid-cols-[1fr_minmax(240px,420px)_1fr] items-center gap-4 px-8 lg:gap-6 lg:px-12">
-            {/* Empty left gutter — balances the right plate */}
+          <div className="mx-auto grid w-full max-w-[1200px] grid-cols-[1fr_minmax(280px,440px)_1fr] items-center px-8 lg:px-12">
+            <div aria-hidden />
             <div aria-hidden />
 
-            {/* Portrait column (visual only) */}
-            <div aria-hidden />
-
-            {/* Right of Chelsea — mid-body */}
             <div
-              className="anim-fade-up pointer-events-auto justify-self-start w-full max-w-[300px] lg:max-w-[320px]"
+              className="anim-fade-up pointer-events-auto w-full max-w-[280px] justify-self-start pl-2 lg:max-w-[300px] lg:pl-4"
               style={{ animationDelay: '1300ms' }}
             >
-              <div className="rounded-md border border-[#B5935A]/20 bg-[#faf8f5]/90 px-5 py-5 shadow-[0_10px_40px_rgba(18,24,32,0.07)] backdrop-blur-md lg:px-6 lg:py-6">
-                <p className="font-cinzel text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#B5935A]">
-                  Chelsea Dazet
-                  <span className="mx-2 text-[#B5935A]/40">·</span>
-                  Attorney at Law
-                </p>
-                <p className="mt-2 font-lora text-[0.95rem] leading-relaxed text-[#3a4250] lg:text-[1rem]">
-                  Personal counsel for Covington &amp; Mandeville
-                  <span className="text-[#5A6270]">
-                    {' '}
-                    — 10+ years · 1-on-1 representation
-                  </span>
-                </p>
-                <div className="mt-5 flex flex-col items-start gap-2.5">
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center justify-center rounded-sm bg-[#B5935A] px-5 py-2.5 font-cinzel text-[0.75rem] font-bold uppercase tracking-wide text-white transition-opacity duration-300 hover:opacity-90"
-                  >
-                    Free Consultation
-                  </a>
-                  <a
-                    href="tel:985-249-6475"
-                    className="inline-flex items-center gap-1.5 font-cinzel text-[0.88rem] font-bold tracking-wide text-[#121820] transition-opacity duration-300 hover:opacity-60"
-                  >
-                    <Phone className="text-[#B5935A]" size={15} strokeWidth={1.75} />
-                    985-249-6475
-                  </a>
-                </div>
+              <p className="font-cinzel text-[0.7rem] font-bold uppercase tracking-[0.2em] text-[#B5935A]">
+                Covington &amp; Mandeville
+              </p>
+              <p className="mt-3 font-cinzel text-[1.45rem] font-bold leading-[1.28] text-[#121820] lg:text-[1.6rem]">
+                Personal counsel.<br />
+                Real protection.
+              </p>
+              <p className="mt-3 font-lora text-[0.92rem] leading-relaxed text-[#5A6270]">
+                10+ years in Louisiana courts · direct 1-on-1 with Chelsea.
+              </p>
+              <div className="mt-6 flex flex-col items-start gap-3">
+                <a
+                  href="#contact"
+                  className="inline-flex items-center justify-center rounded-sm bg-[#B5935A] px-6 py-3 font-cinzel text-[0.78rem] font-bold uppercase tracking-wide text-white transition-opacity duration-300 hover:opacity-90"
+                >
+                  Free Consultation
+                </a>
+                <a
+                  href="tel:985-249-6475"
+                  className="inline-flex items-center gap-2 font-cinzel text-[0.92rem] font-bold tracking-wide text-[#121820] transition-opacity duration-300 hover:opacity-60"
+                >
+                  <Phone className="text-[#B5935A]" size={16} strokeWidth={1.75} />
+                  985-249-6475
+                </a>
               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* ——— Mobile: plate below portrait ——— */}
+        {/* ——— Mobile: open caption (no card) ——— */}
         <motion.div
-          className="absolute inset-x-0 bottom-0 z-30 px-4 pb-5 sm:hidden"
+          className="absolute inset-x-0 bottom-0 z-30 px-6 pb-7 sm:hidden"
           style={scrollMotion ? { opacity: captionOpacity } : undefined}
         >
           <div
-            className="anim-fade-up rounded-md border border-[#B5935A]/20 bg-[#faf8f5]/92 px-4 py-4 shadow-sm backdrop-blur-md"
+            className="anim-fade-up flex flex-col items-center gap-3 text-center"
             style={{ animationDelay: '1300ms' }}
           >
-            <p className="font-cinzel text-[0.65rem] font-bold uppercase tracking-[0.16em] text-[#B5935A]">
-              Chelsea Dazet · Attorney at Law
+            <p className="font-cinzel text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[#B5935A]">
+              Covington &amp; Mandeville
             </p>
-            <p className="mt-1.5 font-lora text-sm leading-snug text-[#3a4250]">
-              Personal counsel for Covington &amp; Mandeville — 10+ years · 1-on-1
+            <p className="font-cinzel text-xl font-bold leading-snug text-[#121820]">
+              Personal counsel.<br />Real protection.
             </p>
-            <div className="mt-3 flex items-center gap-3">
+            <p className="max-w-[280px] font-lora text-sm text-[#5A6270]">
+              10+ years · 1-on-1 with Chelsea
+            </p>
+            <div className="mt-1 flex flex-wrap items-center justify-center gap-3">
               <a
                 href="#contact"
-                className="inline-flex flex-1 items-center justify-center rounded-sm bg-[#B5935A] px-4 py-2.5 font-cinzel text-[0.7rem] font-bold uppercase tracking-wide text-white"
+                className="inline-flex items-center rounded-sm bg-[#B5935A] px-5 py-2.5 font-cinzel text-[0.72rem] font-bold uppercase tracking-wide text-white"
               >
                 Free Consultation
               </a>
               <a
                 href="tel:985-249-6475"
-                className="shrink-0 font-cinzel text-sm font-bold text-[#121820]"
+                className="font-cinzel text-sm font-bold text-[#121820]"
               >
                 985-249-6475
               </a>

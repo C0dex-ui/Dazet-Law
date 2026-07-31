@@ -24,6 +24,11 @@ const CONNECT = [
 
 const drawerEase = 'cubic-bezier(0.76, 0, 0.24, 1)'
 
+/**
+ * Editorial hero: one clear vertical story.
+ * Header → marquee → Chelsea → centered caption + CTA.
+ * Scroll softens the figure; nothing fights her for attention.
+ */
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -34,14 +39,14 @@ export default function Hero() {
     offset: ['start start', 'end start'],
   })
 
-  const portraitScale = useTransform(scrollYProgress, [0, 0.6, 1], [1, 1.08, 0.94])
-  const portraitY = useTransform(scrollYProgress, [0, 1], ['0vh', '-6vh'])
-  const portraitRotateX = useTransform(scrollYProgress, [0, 1], [0, 5])
-  // Keep marquee visible on light cream field through the scroll
-  const marqueeOpacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.9, 0.7])
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '18%'])
-  // CTAs stay trustworthy — never fully fade out
-  const chromeOpacity = useTransform(scrollYProgress, [0.5, 1], [1, 0.72])
+  // Restrained scroll motion — elegant, not flashy
+  const portraitScale = useTransform(scrollYProgress, [0, 0.55, 1], [1, 1.05, 0.96])
+  const portraitY = useTransform(scrollYProgress, [0, 1], ['0vh', '-4vh'])
+  const portraitRotateX = useTransform(scrollYProgress, [0, 1], [0, 3])
+  const marqueeOpacity = useTransform(scrollYProgress, [0, 0.75, 1], [1, 0.88, 0.65])
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '12%'])
+  const captionOpacity = useTransform(scrollYProgress, [0, 0.65, 1], [1, 0.95, 0.8])
+  const chromeOpacity = useTransform(scrollYProgress, [0.55, 1], [1, 0.78])
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
@@ -56,30 +61,27 @@ export default function Hero() {
     <section
       ref={heroRef}
       id="home"
-      className="relative h-[150vh] w-full bg-cream"
+      className="relative h-[145vh] w-full bg-cream"
     >
-      {/* Sticky full-viewport composition — light mode */}
       <div className="sticky top-0 h-[100dvh] w-full overflow-hidden bg-cream">
-        {/* BG z-0 */}
+        {/* ——— Background ——— */}
         <motion.div
           className="anim-fade-in absolute inset-0 z-0 bg-cream"
           style={scrollMotion ? { y: bgY } : undefined}
           aria-hidden
         >
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_80%,rgba(181,147,90,0.12)_0%,transparent_70%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(250,248,245,0.4)_0%,transparent_40%,rgba(239,238,233,0.9)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_75%,rgba(181,147,90,0.11)_0%,transparent_68%)]" />
         </motion.div>
 
-        {/* Marquee z-10 — brand cream type as soft watermark on light field */}
+        {/* ——— Marquee (behind portrait) ——— */}
         <motion.div
-          className="anim-fade-up absolute inset-x-0 top-[16vh] z-10 overflow-hidden sm:top-[14vh]"
+          className="anim-fade-up absolute inset-x-0 top-[13vh] z-10 overflow-hidden sm:top-[12vh]"
           style={{
             animationDelay: '500ms',
             ...(scrollMotion ? { opacity: marqueeOpacity } : {}),
           }}
         >
-          <div className="dh-marquee-track flex w-max whitespace-nowrap font-cinzel text-[16vh] font-bold leading-none sm:text-[26vh]">
-            {/* Cream fill + soft bronze edge so cream type reads on light mode */}
+          <div className="dh-marquee-track flex w-max whitespace-nowrap font-cinzel text-[15vh] font-bold leading-none sm:text-[22vh] lg:text-[24vh]">
             <span className="dh-marquee-cream pr-[6vw]">
               Chelsea&nbsp;&mdash;&nbsp;Dazet&nbsp;
             </span>
@@ -89,10 +91,10 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Portrait z-20 — natural center anchor */}
+        {/* ——— Portrait (hero focus) ——— */}
         <div
-          className="pointer-events-none absolute inset-0 z-20 flex items-end justify-center"
-          style={{ perspective: 1200 }}
+          className="pointer-events-none absolute inset-0 z-20 flex items-end justify-center pb-[7.5rem] sm:pb-[8.5rem]"
+          style={{ perspective: 1400 }}
         >
           <motion.div
             className="anim-rise-in flex h-full w-full items-end justify-center"
@@ -111,76 +113,17 @@ export default function Hero() {
             <img
               src={PORTRAIT}
               alt="Chelsea Dazet, Attorney at Law"
-              className="h-[94%] max-h-[100dvh] w-auto max-w-[min(52vw,520px)] object-contain object-[center_16%] drop-shadow-[0_22px_36px_rgba(18,24,32,0.14)]"
+              className="h-full max-h-[calc(100dvh-11rem)] w-auto max-w-[min(88vw,560px)] object-contain object-[center_12%] drop-shadow-[0_20px_40px_rgba(18,24,32,0.12)]"
             />
           </motion.div>
         </div>
 
-        {/*
-          Natural flow: soft caption band under the figure —
-          left story + right action as one continuous row hugging the portrait.
-        */}
-        <motion.div
-          className="pointer-events-none absolute inset-x-0 bottom-0 z-30 hidden sm:block"
-          style={scrollMotion ? { opacity: chromeOpacity } : undefined}
-        >
-          <div className="mx-auto flex w-full max-w-[1100px] items-end justify-between gap-8 px-10 pb-9 lg:px-14 lg:pb-11">
-            {/* Left — quiet story, sits naturally beside her stride */}
-            <div
-              className="anim-fade-up pointer-events-auto max-w-[240px] shrink-0 pb-1"
-              style={{ animationDelay: '1400ms' }}
-            >
-              <p className="font-cinzel text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#B5935A]">
-                Personal counsel
-              </p>
-              <p className="mt-2 font-lora text-[0.95rem] leading-relaxed text-[#3a4250]">
-                Real protection for Covington &amp; Mandeville —
-                <span className="text-[#5A6270]"> 10+ years in Louisiana courts, 1-on-1 with Chelsea.</span>
-              </p>
-            </div>
-
-            {/* Center breathing room for feet */}
-            <div className="min-w-[min(28vw,220px)] flex-1" aria-hidden />
-
-            {/* Right — action, same quiet register + button */}
-            <div
-              className="anim-fade-up pointer-events-auto flex max-w-[260px] shrink-0 flex-col items-end gap-3 pb-1 text-right"
-              style={{ animationDelay: '1550ms' }}
-            >
-              <p className="font-lora text-[0.9rem] leading-relaxed text-[#5A6270]">
-                Ready when you are. Free consultation to start.
-              </p>
-              <div className="flex flex-wrap items-center justify-end gap-3">
-                <a
-                  href="tel:985-249-6475"
-                  className="inline-flex items-center gap-1.5 font-cinzel text-[0.85rem] font-bold tracking-wide text-[#121820] transition-opacity duration-300 hover:opacity-60"
-                >
-                  <Phone className="text-[#B5935A]" size={15} strokeWidth={1.75} />
-                  985-249-6475
-                </a>
-                <a
-                  href="#contact"
-                  className="inline-flex items-center rounded-sm bg-[#B5935A] px-4 py-2.5 font-cinzel text-[0.72rem] font-bold uppercase tracking-wide text-white transition-opacity duration-300 hover:opacity-90"
-                >
-                  Free Consultation
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Soft hairline that ties the band together */}
-          <div
-            className="anim-line pointer-events-none mx-auto mb-0 h-px w-[min(88%,980px)] origin-center bg-gradient-to-r from-transparent via-[#B5935A]/35 to-transparent"
-            aria-hidden
-          />
-        </motion.div>
-
-        {/* Header chrome z-30 — larger logo + horizontal nav */}
+        {/* ——— Header ——— */}
         <motion.header
-          className="absolute inset-x-0 top-0 z-30 flex items-center justify-between gap-6 px-6 pt-5 sm:px-10 sm:pt-7"
+          className="absolute inset-x-0 top-0 z-30 flex items-center justify-between gap-6 px-6 pt-5 sm:px-10 sm:pt-6"
           style={scrollMotion ? { opacity: chromeOpacity } : undefined}
         >
-          <div className="flex min-w-0 flex-1 items-center gap-5 lg:gap-8">
+          <div className="flex min-w-0 flex-1 items-center gap-5 lg:gap-7">
             <a
               href="#home"
               className="anim-fade-up flex shrink-0 items-center"
@@ -200,14 +143,6 @@ export default function Hero() {
               aria-hidden
             />
 
-            <span
-              className="anim-fade-up hidden shrink-0 font-cinzel text-sm tracking-[0.08em] text-[#5A6270] sm:inline"
-              style={{ animationDelay: '900ms' }}
-            >
-              2026
-            </span>
-
-            {/* Primary nav — horizontal, larger type */}
             <nav
               className="anim-fade-up hidden min-w-0 items-center gap-5 font-lora text-[0.95rem] font-semibold text-[#1E2530] sm:flex lg:gap-7 lg:text-[1.05rem]"
               aria-label="Primary"
@@ -225,7 +160,6 @@ export default function Hero() {
             </nav>
           </div>
 
-          {/* Right: consult CTA */}
           <div
             className="anim-fade-up hidden shrink-0 items-center gap-5 sm:flex"
             style={{ animationDelay: '1150ms' }}
@@ -245,37 +179,48 @@ export default function Hero() {
           </div>
         </motion.header>
 
-        {/* Mobile — simple flowing caption + CTA */}
+        {/* ——— Centered caption + CTA (single anchor under portrait) ——— */}
         <motion.div
-          className="absolute inset-x-0 bottom-0 z-30 px-5 pb-6 sm:hidden"
-          style={scrollMotion ? { opacity: chromeOpacity } : undefined}
+          className="absolute inset-x-0 bottom-0 z-30 px-6 pb-7 sm:px-10 sm:pb-9"
+          style={scrollMotion ? { opacity: captionOpacity } : undefined}
         >
           <div
-            className="anim-fade-up flex flex-col items-center gap-3 text-center"
-            style={{ animationDelay: '1400ms' }}
+            className="anim-fade-up mx-auto flex max-w-xl flex-col items-center text-center"
+            style={{ animationDelay: '1300ms' }}
           >
-            <p className="max-w-[280px] font-lora text-sm leading-relaxed text-[#3a4250]">
-              Personal counsel for Covington &amp; Mandeville —
-              <span className="text-[#5A6270]"> 10+ years, 1-on-1 with Chelsea.</span>
+            <div
+              className="anim-line mb-5 h-px w-16 origin-center bg-[#B5935A]/55"
+              aria-hidden
+            />
+            <p className="font-cinzel text-[0.68rem] font-bold uppercase tracking-[0.22em] text-[#B5935A]">
+              Covington &amp; Mandeville
             </p>
-            <div className="flex items-center gap-3">
-              <a
-                href="tel:985-249-6475"
-                className="font-cinzel text-sm font-bold text-[#121820]"
-              >
-                985-249-6475
-              </a>
+            <p className="mt-2 max-w-md font-lora text-[0.95rem] leading-relaxed text-[#3a4250] sm:text-[1.05rem]">
+              Personal counsel. Real protection.
+              <span className="text-[#5A6270]">
+                {' '}
+                Direct 1-on-1 representation from attorney Chelsea Dazet — 10+ years in Louisiana courts.
+              </span>
+            </p>
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
               <a
                 href="#contact"
-                className="inline-flex items-center rounded-sm bg-[#B5935A] px-4 py-2.5 font-cinzel text-[0.7rem] font-bold uppercase tracking-wide text-white"
+                className="inline-flex items-center justify-center rounded-sm bg-[#B5935A] px-6 py-3 font-cinzel text-[0.78rem] font-bold uppercase tracking-wide text-white shadow-sm transition-opacity duration-300 hover:opacity-90"
               >
                 Free Consultation
+              </a>
+              <a
+                href="tel:985-249-6475"
+                className="inline-flex items-center gap-2 font-cinzel text-[0.9rem] font-bold tracking-wide text-[#121820] transition-opacity duration-300 hover:opacity-60"
+              >
+                <Phone className="text-[#B5935A]" size={16} strokeWidth={1.75} />
+                985-249-6475
               </a>
             </div>
           </div>
         </motion.div>
 
-        {/* Hamburger z-50 */}
+        {/* ——— Mobile menu control ——— */}
         <button
           type="button"
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
@@ -310,7 +255,7 @@ export default function Hero() {
           </span>
         </button>
 
-        {/* Mobile drawer z-40 */}
+        {/* ——— Mobile drawer ——— */}
         <div className="sm:hidden" aria-hidden={!menuOpen}>
           <div
             className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity duration-500 ${
@@ -357,7 +302,7 @@ export default function Hero() {
                     <a
                       key={item.href}
                       href={item.href}
-                      className="font-cinzel text-3xl text-cream transition-all duration-500 sm:text-4xl"
+                      className="font-cinzel text-3xl text-cream transition-all duration-500"
                       style={{
                         transitionDelay: menuOpen ? `${300 + i * 80}ms` : '0ms',
                         opacity: menuOpen ? 1 : 0,
@@ -408,7 +353,6 @@ export default function Hero() {
           </aside>
         </div>
 
-        {/* SEO headline */}
         <h1 className="sr-only">
           Personal Injury? Personal Problem? Get Personal Representation. —
           Chelsea Dazet, Attorney at Law in Covington &amp; Mandeville, LA

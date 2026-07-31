@@ -149,9 +149,9 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Header chrome z-30 — horizontal nav, left-aligned + compact CTA */}
+        {/* Header chrome z-30 — larger logo + horizontal nav */}
         <motion.header
-          className="absolute inset-x-0 top-0 z-30 flex items-center justify-between gap-4 px-6 pt-6 sm:px-10 sm:pt-8"
+          className="absolute inset-x-0 top-0 z-30 flex items-center justify-between gap-6 px-6 pt-5 sm:px-10 sm:pt-7"
           style={scrollMotion ? { opacity: chromeOpacity } : undefined}
         >
           <div className="flex min-w-0 flex-1 items-center gap-5 lg:gap-8">
@@ -164,26 +164,26 @@ export default function Hero() {
               <img
                 src="/logo.png"
                 alt="Dazet Law"
-                className="h-10 w-auto object-contain sm:h-11"
+                className="h-14 w-auto object-contain sm:h-16 lg:h-[4.25rem]"
               />
             </a>
 
             <span
-              className="anim-fade-up hidden h-4 w-px shrink-0 bg-[#B5935A]/35 sm:block"
+              className="anim-fade-up hidden h-7 w-px shrink-0 bg-[#B5935A]/40 sm:block"
               style={{ animationDelay: '900ms' }}
               aria-hidden
             />
 
             <span
-              className="anim-fade-up hidden shrink-0 font-cinzel text-xs tracking-wide text-[#5A6270] sm:inline"
+              className="anim-fade-up hidden shrink-0 font-cinzel text-sm tracking-[0.08em] text-[#5A6270] sm:inline"
               style={{ animationDelay: '900ms' }}
             >
               2026
             </span>
 
-            {/* Primary nav — horizontal, left cluster */}
+            {/* Primary nav — horizontal, larger type */}
             <nav
-              className="anim-fade-up hidden min-w-0 items-center gap-4 font-lora text-[0.8rem] font-medium text-[#1E2530] sm:flex lg:gap-6"
+              className="anim-fade-up hidden min-w-0 items-center gap-5 font-lora text-[0.95rem] font-semibold text-[#1E2530] sm:flex lg:gap-7 lg:text-[1.05rem]"
               aria-label="Primary"
               style={{ animationDelay: '1000ms' }}
             >
@@ -199,20 +199,20 @@ export default function Hero() {
             </nav>
           </div>
 
-          {/* Right: compact consult CTA (readable, trustworthy) */}
+          {/* Right: consult CTA */}
           <div
-            className="anim-fade-up hidden shrink-0 items-center gap-4 sm:flex"
+            className="anim-fade-up hidden shrink-0 items-center gap-5 sm:flex"
             style={{ animationDelay: '1150ms' }}
           >
             <a
               href="mailto:chelsea@dazetlaw.com"
-              className="hidden font-lora text-[0.8rem] text-[#5A6270] transition-opacity duration-300 hover:opacity-60 lg:inline"
+              className="hidden font-lora text-[0.95rem] font-medium text-[#5A6270] transition-opacity duration-300 hover:opacity-60 lg:inline"
             >
               Email
             </a>
             <a
               href="tel:985-249-6475"
-              className="inline-flex items-center gap-2 rounded-sm bg-[#B5935A] px-3.5 py-2 font-cinzel text-[0.7rem] font-bold uppercase tracking-wide text-white transition-opacity duration-300 hover:opacity-90"
+              className="inline-flex items-center gap-2 rounded-sm bg-[#B5935A] px-5 py-2.5 font-cinzel text-[0.8rem] font-bold uppercase tracking-wide text-white transition-opacity duration-300 hover:opacity-90"
             >
               Free Consultation
             </a>

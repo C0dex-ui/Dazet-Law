@@ -61,7 +61,7 @@ export default function Hero() {
     <section
       ref={heroRef}
       id="home"
-      className="relative h-[145vh] w-full bg-cream"
+      className="relative h-[130vh] w-full bg-cream sm:h-[145vh]"
     >
       <div className="sticky top-0 h-[100dvh] w-full overflow-hidden bg-cream">
         {/* ——— Background ——— */}
@@ -75,13 +75,13 @@ export default function Hero() {
 
         {/* ——— Marquee (behind portrait) ——— */}
         <motion.div
-          className="anim-fade-up absolute inset-x-0 top-[13vh] z-10 overflow-hidden sm:top-[12vh]"
+          className="anim-fade-up absolute inset-x-0 top-[11vh] z-10 overflow-hidden sm:top-[12vh]"
           style={{
             animationDelay: '500ms',
             ...(scrollMotion ? { opacity: marqueeOpacity } : {}),
           }}
         >
-          <div className="dh-marquee-track flex w-max whitespace-nowrap font-cinzel text-[15vh] font-bold leading-none sm:text-[22vh] lg:text-[24vh]">
+          <div className="dh-marquee-track flex w-max whitespace-nowrap font-cinzel text-[12vh] font-bold leading-none sm:text-[22vh] lg:text-[24vh]">
             <span className="dh-marquee-cream pr-[6vw]">
               Chelsea&nbsp;&mdash;&nbsp;Dazet&nbsp;
             </span>
@@ -93,7 +93,7 @@ export default function Hero() {
 
         {/* ——— Portrait (hero focus) — full original scale ——— */}
         <div
-          className="pointer-events-none absolute inset-0 z-20 flex items-end justify-center"
+          className="pointer-events-none absolute inset-0 z-20 flex items-end justify-center pb-[11.5rem] sm:pb-0"
           style={{ perspective: 1400 }}
         >
           <motion.div
@@ -113,14 +113,14 @@ export default function Hero() {
             <img
               src={PORTRAIT}
               alt="Chelsea Dazet, Attorney at Law"
-              className="h-full max-h-[100dvh] w-auto max-w-[min(90vw,680px)] object-contain object-[center_18%] drop-shadow-[0_22px_36px_rgba(18,24,32,0.14)]"
+              className="h-full max-h-[calc(100dvh-12rem)] w-auto max-w-[min(92vw,680px)] object-contain object-[center_14%] drop-shadow-[0_22px_36px_rgba(18,24,32,0.14)] sm:max-h-[100dvh] sm:max-w-[min(90vw,680px)] sm:object-[center_18%]"
             />
           </motion.div>
         </div>
 
         {/* ——— Header ——— */}
         <motion.header
-          className="absolute inset-x-0 top-0 z-30 flex items-center justify-between gap-6 px-6 pt-5 sm:px-10 sm:pt-6"
+          className="absolute inset-x-0 top-0 z-30 flex items-center justify-between gap-4 px-4 pt-[max(1rem,env(safe-area-inset-top))] sm:gap-6 sm:px-10 sm:pt-6"
           style={scrollMotion ? { opacity: chromeOpacity } : undefined}
         >
           <div className="flex min-w-0 flex-1 items-center gap-5 lg:gap-7">
@@ -133,7 +133,7 @@ export default function Hero() {
               <img
                 src="/logo.png"
                 alt="Dazet Law"
-                className="h-14 w-auto object-contain sm:h-16 lg:h-[4.25rem]"
+                className="h-11 w-auto object-contain sm:h-16 lg:h-[4.25rem]"
               />
             </a>
 
@@ -225,33 +225,34 @@ export default function Hero() {
 
         {/* Mobile caption under figure */}
         <motion.div
-          className="absolute inset-x-0 bottom-0 z-30 px-6 pb-7 sm:hidden"
+          className="absolute inset-x-0 bottom-0 z-30 px-4 pb-[max(1.25rem,env(safe-area-inset-bottom))] sm:hidden"
           style={scrollMotion ? { opacity: captionOpacity } : undefined}
         >
           <div
-            className="anim-fade-up flex flex-col items-center gap-3 text-center"
+            className="anim-fade-up flex flex-col items-center gap-2.5 text-center"
             style={{ animationDelay: '1300ms' }}
           >
-            <p className="font-cinzel text-[0.7rem] font-bold uppercase tracking-[0.18em] text-[#B5935A]">
+            <p className="font-cinzel text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[#B5935A]">
               Covington &amp; Mandeville
             </p>
-            <p className="font-cinzel text-2xl font-bold leading-snug text-[#121820]">
+            <p className="font-cinzel text-[1.35rem] font-bold leading-snug text-[#121820] xs:text-2xl">
               Personal counsel.<br />Real protection.
             </p>
-            <p className="max-w-[300px] font-lora text-[0.95rem] text-[#5A6270]">
+            <p className="max-w-[280px] font-lora text-[0.88rem] leading-snug text-[#5A6270]">
               10+ years · 1-on-1 with Chelsea
             </p>
-            <div className="mt-1 flex flex-wrap items-center justify-center gap-3">
+            <div className="mt-1 flex w-full max-w-sm flex-col items-stretch gap-2.5 px-2">
               <a
                 href="#contact"
-                className="inline-flex items-center rounded-sm bg-[#B5935A] px-6 py-3 font-cinzel text-[0.78rem] font-bold uppercase tracking-wide text-white"
+                className="inline-flex min-h-[48px] items-center justify-center rounded-sm bg-[#B5935A] px-6 py-3 font-cinzel text-[0.8rem] font-bold uppercase tracking-wide text-white"
               >
                 Free Consultation
               </a>
               <a
                 href="tel:985-249-6475"
-                className="font-cinzel text-base font-bold text-[#121820]"
+                className="inline-flex min-h-[44px] items-center justify-center gap-2 font-cinzel text-base font-bold text-[#121820]"
               >
+                <Phone className="text-[#B5935A]" size={18} strokeWidth={1.75} />
                 985-249-6475
               </a>
             </div>
@@ -264,7 +265,7 @@ export default function Hero() {
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((o) => !o)}
-          className="anim-fade-up absolute right-6 top-6 z-50 flex h-10 w-10 items-center justify-center sm:hidden"
+          className="anim-fade-up absolute right-3 top-[max(0.75rem,env(safe-area-inset-top))] z-50 flex h-12 w-12 items-center justify-center sm:hidden"
           style={{ animationDelay: '900ms' }}
         >
           <span className="relative h-4 w-6">
@@ -304,7 +305,7 @@ export default function Hero() {
             onClick={() => setMenuOpen(false)}
           />
           <aside
-            className={`fixed inset-y-0 right-0 z-40 w-[80%] max-w-sm bg-[#141414] px-8 py-10 transition-transform duration-[600ms] ${
+            className={`fixed inset-y-0 right-0 z-40 w-[min(86vw,22rem)] bg-[#141414] px-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-[max(2.5rem,env(safe-area-inset-top))] transition-transform duration-[600ms] ${
               menuOpen ? 'translate-x-0' : 'translate-x-full'
             }`}
             style={{ transitionTimingFunction: drawerEase }}
@@ -313,7 +314,7 @@ export default function Hero() {
               type="button"
               aria-label="Close menu"
               onClick={() => setMenuOpen(false)}
-              className="absolute right-6 top-6 text-cream transition-all duration-300"
+              className="absolute right-4 top-[max(1rem,env(safe-area-inset-top))] flex h-11 w-11 items-center justify-center text-cream transition-all duration-300"
               style={{
                 transitionDelay: menuOpen ? '300ms' : '0ms',
                 opacity: menuOpen ? 1 : 0,
@@ -323,10 +324,10 @@ export default function Hero() {
               <X size={26} strokeWidth={1.5} />
             </button>
 
-            <div className="mt-10 flex flex-col gap-12">
+            <div className="mt-12 flex flex-col gap-10">
               <div>
                 <p
-                  className="mb-6 text-xs uppercase tracking-[0.2em] text-cream/50 transition-all duration-500"
+                  className="mb-5 text-xs uppercase tracking-[0.2em] text-cream/50 transition-all duration-500"
                   style={{
                     transitionDelay: menuOpen ? '250ms' : '0ms',
                     opacity: menuOpen ? 1 : 0,
@@ -335,12 +336,12 @@ export default function Hero() {
                 >
                   Site Index
                 </p>
-                <nav className="flex flex-col gap-2">
+                <nav className="flex flex-col gap-1">
                   {NAV.map((item, i) => (
                     <a
                       key={item.href}
                       href={item.href}
-                      className="font-cinzel text-3xl text-cream transition-all duration-500"
+                      className="flex min-h-[48px] items-center font-cinzel text-[1.75rem] text-cream transition-all duration-500"
                       style={{
                         transitionDelay: menuOpen ? `${300 + i * 80}ms` : '0ms',
                         opacity: menuOpen ? 1 : 0,
@@ -367,12 +368,12 @@ export default function Hero() {
                 >
                   Find Me
                 </p>
-                <nav className="flex flex-wrap gap-x-5 gap-y-2">
+                <nav className="flex flex-col gap-1">
                   {CONNECT.map((item, i) => (
                     <a
                       key={item.label}
                       href={item.href}
-                      className="text-sm text-cream transition-all duration-500"
+                      className="flex min-h-[44px] items-center text-base text-cream transition-all duration-500"
                       style={{
                         transitionDelay: menuOpen ? `${550 + i * 60}ms` : '0ms',
                         opacity: menuOpen ? 1 : 0,
@@ -386,6 +387,17 @@ export default function Hero() {
                     </a>
                   ))}
                 </nav>
+                <a
+                  href="tel:985-249-6475"
+                  className="mt-6 flex min-h-[48px] items-center justify-center rounded-sm bg-[#B5935A] px-4 font-cinzel text-sm font-bold uppercase tracking-wide text-white transition-all duration-500"
+                  style={{
+                    transitionDelay: menuOpen ? '700ms' : '0ms',
+                    opacity: menuOpen ? 1 : 0,
+                  }}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Free Consultation
+                </a>
               </div>
             </div>
           </aside>

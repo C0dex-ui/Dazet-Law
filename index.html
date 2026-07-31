@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Lora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="styles.css?v=9">
   <link rel="icon" type="image/png" href="./favicon.png">
 </head>
 <body>
@@ -35,88 +35,49 @@
     </div>
   </header>
 
-  <!-- Hero Section: left panel · centered portrait · right panel -->
+  <!-- Hero: open editorial layout — left copy · center portrait · right CTA -->
   <section class="hero" id="home">
-    <div class="hero-atmosphere" aria-hidden="true">
-      <div class="hero-atmosphere-glow"></div>
-      <div class="hero-atmosphere-name">
-        <span>Chelsea</span>
-        <span>Dazet</span>
-      </div>
-      <div class="hero-atmosphere-scales">
-        <img src="./assets/image_3.png" alt="">
-      </div>
+    <div class="hero-bg" aria-hidden="true">
+      <span class="hero-bg-word">Dazet</span>
+      <div class="hero-bg-glow"></div>
     </div>
 
-    <div class="hero-stage">
-      <!-- LEFT PANEL: credentials & trust -->
-      <aside class="hero-panel hero-panel--left">
-        <div class="hero-panel-inner">
-          <span class="hero-panel-kicker">
-            <i class="ph ph-map-pin"></i>
-            Covington · Mandeville · Northshore
-          </span>
-          <h2 class="hero-panel-title">Advocacy<br>with a name<br><em>you can trust.</em></h2>
-          <p class="hero-panel-copy">No layers. No case transfers. You work directly with Chelsea—clear guidance and personal protection when the system feels overwhelming.</p>
-          <ul class="hero-cred-list">
-            <li>
-              <span class="hero-cred-num">10+</span>
-              <span class="hero-cred-label">Years in<br>Louisiana courts</span>
-            </li>
-            <li>
-              <span class="hero-cred-num">1:1</span>
-              <span class="hero-cred-label">Direct attorney<br>communication</span>
-            </li>
-            <li>
-              <span class="hero-cred-num">100%</span>
-              <span class="hero-cred-label">Local focus<br>Northshore LA</span>
-            </li>
-          </ul>
-          <div class="hero-panel-rule" aria-hidden="true"></div>
-          <p class="hero-panel-note">Personal Injury · Estate Planning · Business · Family · Defense</p>
-        </div>
-      </aside>
-
-      <!-- CENTER: walking portrait (hero focal point) -->
-      <div class="hero-figure">
-        <div class="hero-figure-ring" aria-hidden="true"></div>
-        <div class="hero-figure-glow" aria-hidden="true"></div>
-        <div class="hero-figure-photo">
-          <img src="./assets/dazet-portrait-photo.png" alt="Chelsea Dazet, Attorney at Law">
-        </div>
-        <div class="hero-figure-plinth" aria-hidden="true">
-          <span class="hero-figure-plinth-line"></span>
-          <span class="hero-figure-name">Chelsea Dazet</span>
-          <span class="hero-figure-role">Attorney at Law</span>
-          <span class="hero-figure-plinth-line"></span>
-        </div>
+    <div class="hero-grid">
+      <!-- LEFT -->
+      <div class="hero-side hero-side--left">
+        <p class="hero-eyebrow">Covington &amp; Mandeville</p>
+        <h2 class="hero-side-heading">Personal counsel.<br><span>Real protection.</span></h2>
+        <p class="hero-side-text">You speak with Chelsea—not a case manager. A decade of Louisiana trial experience, focused on the Northshore.</p>
+        <ul class="hero-points">
+          <li>10+ years in Louisiana courts</li>
+          <li>Direct 1-on-1 attorney access</li>
+          <li>Injury · Estate · Business · Family</li>
+        </ul>
       </div>
 
-      <!-- RIGHT PANEL: headline & CTA -->
-      <aside class="hero-panel hero-panel--right">
-        <div class="hero-panel-inner">
-          <span class="hero-panel-kicker hero-panel-kicker--accent">Personal Injury &amp; General Law</span>
-          <h1 class="hero-headline">
-            Personal Injury?<br>
-            Personal Problem?<br>
-            Get <span>Personal Representation.</span>
-          </h1>
-          <p class="hero-panel-copy">You need an advocate who shows up for you—straightforward counsel, trial-tested experience, and results that protect your rights.</p>
-          <ul class="hero-check-list">
-            <li><i class="ph ph-check-square"></i> Trial court experience you can rely on</li>
-            <li><i class="ph ph-check-square"></i> Direct access to your attorney</li>
-            <li><i class="ph ph-check-square"></i> Free consultation to start</li>
-          </ul>
-          <div class="hero-cta-row">
-            <a href="#contact" class="btn-bronze hero-btn"><i class="ph ph-calendar-plus"></i> Request Consultation</a>
-            <a href="#practice" class="btn-outline hero-btn">Practice Areas</a>
-          </div>
-          <a href="tel:985-249-6475" class="hero-phone-link">
-            <i class="ph ph-phone-call"></i>
-            <span>985-249-6475</span>
-          </a>
+      <!-- CENTER PORTRAIT -->
+      <div class="hero-center">
+        <div class="hero-photo">
+          <img src="./assets/dazet-portrait-photo.png" alt="Chelsea Dazet, Attorney at Law">
         </div>
-      </aside>
+        <p class="hero-photo-caption">Chelsea Dazet · Attorney at Law</p>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="hero-side hero-side--right">
+        <p class="hero-eyebrow">Personal Injury &amp; General Law</p>
+        <h1 class="hero-title">
+          Personal Injury?<br>
+          Personal Problem?<br>
+          Get <em>Personal Representation.</em>
+        </h1>
+        <p class="hero-side-text">No one should be intimidated by the legal system. You need an advocate who shows up for you.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-bronze hero-cta"><i class="ph ph-calendar-plus"></i> Request Consultation</a>
+          <a href="#practice" class="btn-outline hero-cta">Practice Areas</a>
+        </div>
+        <a class="hero-call" href="tel:985-249-6475"><i class="ph ph-phone"></i> 985-249-6475</a>
+      </div>
     </div>
   </section>
 

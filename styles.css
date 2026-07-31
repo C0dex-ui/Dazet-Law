@@ -198,22 +198,54 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Hero Section */
 .hero {
-  background: #FAF8F5;
-  padding: 170px 24px 110px;
+  background:
+    radial-gradient(ellipse 55% 70% at 18% 70%, rgba(181, 147, 90, 0.10) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 50% at 85% 20%, rgba(18, 24, 32, 0.03) 0%, transparent 60%),
+    #FAF8F5;
+  padding: 110px 24px 0;
   position: relative;
   overflow: hidden;
+  min-height: min(100vh, 980px);
+  display: flex;
+  align-items: stretch;
 }
 .hero-watermark {
-  top: 50%;
-  left: -2%;
+  top: 48%;
+  left: -4%;
   transform: translateY(-50%);
+  font-size: 14vw;
+  opacity: 0.7;
+}
+/* Large editorial name behind the figure */
+.hero-name-watermark {
+  position: absolute;
+  left: 2%;
+  bottom: 6%;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.88;
+  letter-spacing: 0.04em;
+  color: rgba(181, 147, 90, 0.09);
+  user-select: none;
+}
+.hero-name-watermark span:first-child {
+  font-size: clamp(3.5rem, 9vw, 7.5rem);
+}
+.hero-name-watermark span:last-child {
+  font-size: clamp(3.5rem, 9vw, 7.5rem);
+  margin-left: 0.15em;
 }
 .hero-justitia-bg {
   position: absolute;
-  right: 8%;
-  top: 10%;
-  height: 80%;
-  opacity: 0.05;
+  right: 4%;
+  top: 8%;
+  height: 78%;
+  opacity: 0.045;
   pointer-events: none;
   z-index: 1;
 }
@@ -223,24 +255,64 @@ img { max-width: 100%; height: auto; display: block; }
   object-fit: contain;
 }
 .hero-inner {
-  max-width: 1100px;
+  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr; /* Left column with portrait is wider */
-  gap: 90px; /* Increased column gap */
-  align-items: center;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.95fr);
+  gap: 24px 36px;
+  align-items: end;
   position: relative;
   z-index: 3;
+  min-height: calc(min(100vh, 980px) - 110px);
 }
 .hero-office-img-wrapper {
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  align-self: end;
+  width: 100%;
+  min-height: 0;
+  /* Let the figure sit on the bottom edge and feel larger than the column */
+  margin-bottom: -8px;
+  z-index: 4;
+}
+/* Soft warm spotlight behind Chelsea */
+.hero-portrait-glow {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+  width: min(92%, 520px);
+  height: min(78%, 620px);
+  background:
+    radial-gradient(ellipse at 50% 70%, rgba(181, 147, 90, 0.28) 0%, rgba(181, 147, 90, 0.08) 42%, transparent 72%);
+  filter: blur(6px);
+  pointer-events: none;
+  z-index: 0;
+}
+/* Elegant bronze elliptical ring framing the figure */
+.hero-portrait-ring {
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  transform: translateX(-50%);
+  width: min(88%, 480px);
+  aspect-ratio: 3 / 4;
+  max-height: 78%;
+  border: 1px solid rgba(181, 147, 90, 0.28);
+  border-radius: 50% 50% 46% 46%;
+  pointer-events: none;
+  z-index: 0;
+  box-shadow:
+    inset 0 0 40px rgba(181, 147, 90, 0.06),
+    0 0 0 12px rgba(181, 147, 90, 0.04);
 }
 .hero-office-img {
   width: 100%;
-  height: 450px; /* Increased height from 380px */
+  height: 450px;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 20px 45px rgba(0,0,0,0.04);
@@ -251,37 +323,75 @@ img { max-width: 100%; height: auto; display: block; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top; /* Prevent head crop by aligning to top */
+  object-position: center top;
 }
-/* Real walking cutout from dazetlaw.com — no crop box, full figure */
+/* Real walking cutout — large, full-height, steps slightly into the copy */
 .hero-office-img.hero-portrait-cutout {
+  position: relative;
+  z-index: 2;
   height: auto;
-  max-height: 620px;
-  max-width: 420px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
   border: none;
   border-radius: 0;
   box-shadow: none;
   background: transparent;
   overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 .hero-office-img.hero-portrait-cutout img {
-  width: 100%;
+  width: auto;
   height: auto;
-  max-height: 620px;
+  max-width: min(100%, 620px);
+  max-height: min(86vh, 860px);
+  min-height: min(72vh, 700px);
   object-fit: contain;
   object-position: center bottom;
-  filter: drop-shadow(0 18px 28px rgba(18, 24, 32, 0.18));
+  /* Step toward the copy and up in scale for presence */
+  transform: scale(1.12) translate(4%, 2%);
+  transform-origin: bottom center;
+  filter:
+    drop-shadow(0 28px 36px rgba(18, 24, 32, 0.22))
+    drop-shadow(0 8px 14px rgba(18, 24, 32, 0.12));
+}
+.hero-portrait-caption {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+  margin-bottom: 28px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #B5935A;
+  opacity: 0.9;
+}
+.hero-portrait-line {
+  display: block;
+  width: 42px;
+  height: 1px;
+  background: linear-gradient(90deg, #B5935A, transparent);
 }
 .hero-office-border {
   position: absolute;
-  inset: 15px -15px -15px 15px; /* Increased offset frame */
+  inset: 15px -15px -15px 15px;
   border: 1px solid #B5935A;
   border-radius: 8px;
   z-index: -1;
 }
 .hero-content {
   text-align: left;
+  padding: 40px 0 72px;
+  position: relative;
+  z-index: 5;
 }
 .hero-tag {
   color: #B5935A;
@@ -293,8 +403,8 @@ img { max-width: 100%; height: auto; display: block; }
   display: block;
 }
 .hero h1 {
-  font-size: 2.5rem;
-  line-height: 1.25;
+  font-size: clamp(2.1rem, 3.2vw, 2.85rem);
+  line-height: 1.2;
   color: #121820;
   margin-bottom: 20px;
 }
@@ -306,6 +416,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 0.98rem;
   line-height: 1.75;
   margin-bottom: 28px;
+  max-width: 34em;
 }
 .hero-bullets {
   margin-bottom: 32px;
@@ -521,8 +632,8 @@ img { max-width: 100%; height: auto; display: block; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Real smiling photo from dazetlaw.com — keep face centered, no AI crop shift */
-  object-position: 52% 22%;
+  /* User-provided smiling portrait */
+  object-position: center top;
 }
 .attorney-content {
   text-align: left;
@@ -889,28 +1000,53 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Responsive adjustments */
 @media (max-width: 992px) {
+  .hero {
+    min-height: auto;
+    padding: 100px 20px 0;
+  }
   .hero-inner {
     grid-template-columns: 1fr;
     text-align: center;
-    padding-top: 120px;
-    gap: 60px; /* Increased vertical stack gap */
+    gap: 8px;
+    min-height: auto;
   }
   .hero-content {
     text-align: center;
+    order: 1;
+    padding: 12px 0 28px;
   }
   .hero-buttons {
     justify-content: center;
   }
   .hero-office-img-wrapper {
-    max-width: 500px;
+    order: 2;
+    max-width: 520px;
     margin: 0 auto;
+    min-height: 420px;
   }
-  .hero-office-img.hero-portrait-cutout {
-    max-width: 320px;
-    max-height: 480px;
+  .hero-name-watermark {
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    bottom: 2%;
   }
   .hero-office-img.hero-portrait-cutout img {
-    max-height: 480px;
+    max-width: min(92vw, 420px);
+    max-height: min(70vh, 620px);
+    min-height: 380px;
+    transform: scale(1.06) translateY(2%);
+  }
+  .hero-portrait-caption {
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  .hero-portrait-line {
+    background: linear-gradient(90deg, transparent, #B5935A, transparent);
+    width: 56px;
+  }
+  .hero p {
+    margin-left: auto;
+    margin-right: auto;
   }
   .pillars-row-grid {
     grid-template-columns: 1fr;

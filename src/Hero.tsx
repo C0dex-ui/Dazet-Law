@@ -157,10 +157,15 @@ export default function Hero() {
           <div className="flex min-w-0 flex-1 items-center gap-5 lg:gap-8">
             <a
               href="#home"
-              className="anim-fade-up shrink-0 font-cinzel text-lg font-bold tracking-wide text-[#121820]"
+              className="anim-fade-up flex shrink-0 items-center"
               style={{ animationDelay: '800ms' }}
+              aria-label="Dazet Law"
             >
-              Dazet Law
+              <img
+                src="/logo.png"
+                alt="Dazet Law"
+                className="h-10 w-auto object-contain sm:h-11"
+              />
             </a>
 
             <span

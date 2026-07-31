@@ -89,7 +89,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Portrait z-20 — centered, slightly tighter so side rails can breathe */}
+        {/* Portrait z-20 — natural center anchor */}
         <div
           className="pointer-events-none absolute inset-0 z-20 flex items-end justify-center"
           style={{ perspective: 1200 }}
@@ -111,81 +111,68 @@ export default function Hero() {
             <img
               src={PORTRAIT}
               alt="Chelsea Dazet, Attorney at Law"
-              className="h-[92%] max-h-[100dvh] w-auto max-w-[min(48vw,460px)] object-contain object-[center_18%] drop-shadow-[0_22px_36px_rgba(18,24,32,0.14)]"
+              className="h-[94%] max-h-[100dvh] w-auto max-w-[min(52vw,520px)] object-contain object-[center_16%] drop-shadow-[0_22px_36px_rgba(18,24,32,0.14)]"
             />
           </motion.div>
         </div>
 
         {/*
-          Balanced side rails — equal columns, mid-height (beside torso/hips),
-          mirrored structure so left/right visual weight matches.
+          Natural flow: soft caption band under the figure —
+          left story + right action as one continuous row hugging the portrait.
         */}
         <motion.div
-          className="pointer-events-none absolute inset-0 z-30 hidden sm:block"
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-30 hidden sm:block"
           style={scrollMotion ? { opacity: chromeOpacity } : undefined}
         >
-          <div className="mx-auto flex h-full w-full max-w-[1200px] items-center px-8 lg:px-12">
-            <div className="grid w-full grid-cols-[1fr_minmax(260px,400px)_1fr] items-center gap-6 lg:gap-10">
-              {/* LEFT rail */}
-              <div
-                className="anim-fade-up pointer-events-auto justify-self-end w-full max-w-[250px] text-right lg:max-w-[270px]"
-                style={{ animationDelay: '1400ms' }}
-              >
-                <p className="font-cinzel text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#B5935A]">
-                  Why Dazet
-                </p>
-                <h2 className="mt-3 font-cinzel text-[1.35rem] font-bold leading-[1.25] text-[#121820] lg:text-[1.5rem]">
-                  Personal counsel.<br />
-                  Real protection.
-                </h2>
-                <p className="mt-3 font-lora text-[0.9rem] leading-relaxed text-[#5A6270]">
-                  10+ years in Louisiana courts with direct 1-on-1 attorney access.
-                </p>
-                <ul className="mt-4 space-y-1.5 font-lora text-[0.82rem] font-medium text-[#1E2530]">
-                  <li>Trial-tested local counsel</li>
-                  <li>Injury · Estate · Business</li>
-                  <li>Northshore focused</li>
-                </ul>
-                <div className="mt-5 ml-auto h-px w-14 bg-[#B5935A]/60" aria-hidden />
-              </div>
+          <div className="mx-auto flex w-full max-w-[1100px] items-end justify-between gap-8 px-10 pb-9 lg:px-14 lg:pb-11">
+            {/* Left — quiet story, sits naturally beside her stride */}
+            <div
+              className="anim-fade-up pointer-events-auto max-w-[240px] shrink-0 pb-1"
+              style={{ animationDelay: '1400ms' }}
+            >
+              <p className="font-cinzel text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#B5935A]">
+                Personal counsel
+              </p>
+              <p className="mt-2 font-lora text-[0.95rem] leading-relaxed text-[#3a4250]">
+                Real protection for Covington &amp; Mandeville —
+                <span className="text-[#5A6270]"> 10+ years in Louisiana courts, 1-on-1 with Chelsea.</span>
+              </p>
+            </div>
 
-              {/* CENTER — portrait gutter */}
-              <div aria-hidden className="h-px" />
+            {/* Center breathing room for feet */}
+            <div className="min-w-[min(28vw,220px)] flex-1" aria-hidden />
 
-              {/* RIGHT rail — mirrored weight + CTA */}
-              <div
-                className="anim-fade-up pointer-events-auto justify-self-start w-full max-w-[250px] text-left lg:max-w-[270px]"
-                style={{ animationDelay: '1550ms' }}
-              >
-                <p className="font-cinzel text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#B5935A]">
-                  Covington &amp; Mandeville
-                </p>
-                <h2 className="mt-3 font-cinzel text-[1.35rem] font-bold leading-[1.25] text-[#121820] lg:text-[1.5rem]">
-                  Free consultation.<br />
-                  Clear next steps.
-                </h2>
-                <p className="mt-3 font-lora text-[0.9rem] leading-relaxed text-[#5A6270]">
-                  Local representation you can reach — start with a confidential case review.
-                </p>
-                <div className="mt-5 flex flex-col items-start gap-3">
-                  <a
-                    href="#contact"
-                    className="inline-flex min-w-[200px] items-center justify-center gap-2 rounded-sm bg-[#B5935A] px-5 py-3 font-cinzel text-[0.78rem] font-bold uppercase tracking-wide text-white shadow-sm transition-opacity duration-300 hover:opacity-90"
-                  >
-                    Free Consultation
-                  </a>
-                  <a
-                    href="tel:985-249-6475"
-                    className="inline-flex items-center gap-2 font-cinzel text-[0.9rem] font-bold tracking-wide text-[#121820] transition-opacity duration-300 hover:opacity-60"
-                  >
-                    <Phone className="text-[#B5935A]" size={16} strokeWidth={1.75} />
-                    985-249-6475
-                  </a>
-                </div>
-                <div className="mt-5 h-px w-14 bg-[#B5935A]/60" aria-hidden />
+            {/* Right — action, same quiet register + button */}
+            <div
+              className="anim-fade-up pointer-events-auto flex max-w-[260px] shrink-0 flex-col items-end gap-3 pb-1 text-right"
+              style={{ animationDelay: '1550ms' }}
+            >
+              <p className="font-lora text-[0.9rem] leading-relaxed text-[#5A6270]">
+                Ready when you are. Free consultation to start.
+              </p>
+              <div className="flex flex-wrap items-center justify-end gap-3">
+                <a
+                  href="tel:985-249-6475"
+                  className="inline-flex items-center gap-1.5 font-cinzel text-[0.85rem] font-bold tracking-wide text-[#121820] transition-opacity duration-300 hover:opacity-60"
+                >
+                  <Phone className="text-[#B5935A]" size={15} strokeWidth={1.75} />
+                  985-249-6475
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center rounded-sm bg-[#B5935A] px-4 py-2.5 font-cinzel text-[0.72rem] font-bold uppercase tracking-wide text-white transition-opacity duration-300 hover:opacity-90"
+                >
+                  Free Consultation
+                </a>
               </div>
             </div>
           </div>
+
+          {/* Soft hairline that ties the band together */}
+          <div
+            className="anim-line pointer-events-none mx-auto mb-0 h-px w-[min(88%,980px)] origin-center bg-gradient-to-r from-transparent via-[#B5935A]/35 to-transparent"
+            aria-hidden
+          />
         </motion.div>
 
         {/* Header chrome z-30 — larger logo + horizontal nav */}
@@ -258,28 +245,31 @@ export default function Hero() {
           </div>
         </motion.header>
 
-        {/* Mobile bottom bar — compact + CTA button */}
+        {/* Mobile — simple flowing caption + CTA */}
         <motion.div
-          className="absolute inset-x-0 bottom-0 z-30 px-5 pb-5 sm:hidden"
+          className="absolute inset-x-0 bottom-0 z-30 px-5 pb-6 sm:hidden"
           style={scrollMotion ? { opacity: chromeOpacity } : undefined}
         >
           <div
-            className="anim-fade-up rounded-lg border border-[#B5935A]/20 bg-cream/90 px-4 py-3 shadow-sm backdrop-blur-sm"
+            className="anim-fade-up flex flex-col items-center gap-3 text-center"
             style={{ animationDelay: '1400ms' }}
           >
-            <div className="flex items-end justify-between gap-3">
-              <div className="min-w-0 font-lora text-xs leading-snug text-[#1E2530]">
-                <p className="font-cinzel text-[0.65rem] font-bold uppercase tracking-[0.14em] text-[#B5935A]">
-                  Covington &amp; Mandeville
-                </p>
-                <p className="mt-1 font-semibold">Personal counsel. Real protection.</p>
-                <p className="mt-0.5 text-[#5A6270]">10+ years · Louisiana courts</p>
-              </div>
+            <p className="max-w-[280px] font-lora text-sm leading-relaxed text-[#3a4250]">
+              Personal counsel for Covington &amp; Mandeville —
+              <span className="text-[#5A6270]"> 10+ years, 1-on-1 with Chelsea.</span>
+            </p>
+            <div className="flex items-center gap-3">
+              <a
+                href="tel:985-249-6475"
+                className="font-cinzel text-sm font-bold text-[#121820]"
+              >
+                985-249-6475
+              </a>
               <a
                 href="#contact"
-                className="inline-flex shrink-0 items-center rounded-sm bg-[#B5935A] px-3 py-2 font-cinzel text-[0.65rem] font-bold uppercase tracking-wide text-white"
+                className="inline-flex items-center rounded-sm bg-[#B5935A] px-4 py-2.5 font-cinzel text-[0.7rem] font-bold uppercase tracking-wide text-white"
               >
-                Consult
+                Free Consultation
               </a>
             </div>
           </div>

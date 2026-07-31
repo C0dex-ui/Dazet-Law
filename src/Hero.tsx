@@ -113,7 +113,7 @@ export default function Hero() {
             <img
               src={PORTRAIT}
               alt="Chelsea Dazet, Attorney at Law"
-              className="h-full max-h-[calc(100dvh-5rem)] w-auto max-w-[min(52vw,480px)] object-contain object-[center_12%] drop-shadow-[0_20px_40px_rgba(18,24,32,0.12)] sm:max-w-[min(46vw,500px)]"
+              className="h-full max-h-[calc(100dvh-5rem)] w-auto max-w-[min(88vw,560px)] object-contain object-[center_12%] drop-shadow-[0_20px_40px_rgba(18,24,32,0.12)]"
             />
           </motion.div>
         </div>

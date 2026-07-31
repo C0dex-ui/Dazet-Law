@@ -3,82 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dazet Law â€” Personal Injury & Estate Planning in Covington, LA</title>
+  <title>Dazet Law — Personal Injury & Estate Planning in Covington, LA</title>
   <meta name="description" content="Get personal legal representation from attorney Chelsea Dazet. Guidance & protection in Covington, LA. Call 985-249-6475.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Lora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="styles.css?v=10">
   <link rel="icon" type="image/png" href="./favicon.png">
 </head>
 <body>
-  <!-- Sticky Header -->
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="#home" class="header-logo">
-        <img src="./logo.png" alt="Dazet Law Emblem">
-        <span class="sr-only">Dazet Law</span>
-      </a>
-      <button class="mobile-toggle" onclick="document.querySelector('.header-nav-container').classList.toggle('active')">
-        <i class="ph ph-list"></i>
+  <!-- Fixed chrome (Marcus composition adapted for Dazet) -->
+  <header class="site-header" id="site-header">
+    <div class="hero-chrome">
+      <a href="#home" class="hero-brand anim-fade-up" style="animation-delay:800ms">Dazet</a>
+
+      <div class="hero-chrome-right">
+        <span class="hero-year anim-fade-up" style="animation-delay:900ms">2026</span>
+        <nav class="hero-nav-col" aria-label="Primary">
+          <a href="#practice" class="anim-fade-up" style="animation-delay:1000ms">Practice</a>
+          <a href="#attorney" class="anim-fade-up" style="animation-delay:1080ms">Chelsea</a>
+          <a href="#testimonials" class="anim-fade-up" style="animation-delay:1160ms">Reviews</a>
+          <a href="#contact" class="anim-fade-up" style="animation-delay:1240ms">Contact</a>
+        </nav>
+        <nav class="hero-nav-col" aria-label="Connect">
+          <a href="tel:985-249-6475" class="anim-fade-up" style="animation-delay:1150ms">Call</a>
+          <a href="mailto:chelsea@dazetlaw.com" class="anim-fade-up" style="animation-delay:1230ms">Email</a>
+          <a href="#contact" class="anim-fade-up" style="animation-delay:1310ms">Consult</a>
+        </nav>
+      </div>
+
+      <button type="button" class="hero-burger anim-fade-up" id="hero-burger" aria-label="Open menu" aria-expanded="false" style="animation-delay:900ms">
+        <span></span><span></span><span></span>
       </button>
-      <nav class="header-nav-container">
-        <ul class="header-nav">
-          <li><a href="#practice" onclick="document.querySelector('.header-nav-container').classList.remove('active')">Practice Areas</a></li>
-          <li><a href="#attorney" onclick="document.querySelector('.header-nav-container').classList.remove('active')">Meet Chelsea</a></li>
-          <li><a href="#testimonials" onclick="document.querySelector('.header-nav-container').classList.remove('active')">Reviews</a></li>
-          <li><a href="#contact" onclick="document.querySelector('.header-nav-container').classList.remove('active')">Contact</a></li>
-        </ul>
-      </nav>
-      <a href="tel:985-249-6475" class="header-cta"><i class="ph ph-phone"></i> Free Consultation</a>
     </div>
   </header>
 
-  <!-- Hero: open editorial layout — left copy · center portrait · right CTA -->
+  <!-- Mobile drawer -->
+  <div class="hero-drawer" id="hero-drawer" aria-hidden="true">
+    <div class="hero-drawer-backdrop" id="hero-drawer-backdrop"></div>
+    <aside class="hero-drawer-panel" role="dialog" aria-label="Menu">
+      <button type="button" class="hero-drawer-close" id="hero-drawer-close" aria-label="Close menu">
+        <i class="ph ph-x" style="font-size:26px;font-weight:300"></i>
+      </button>
+      <div class="hero-drawer-block">
+        <p class="hero-drawer-label">Site Index</p>
+        <nav class="hero-drawer-nav">
+          <a href="#practice" data-drawer-link>Practice Areas</a>
+          <a href="#attorney" data-drawer-link>Meet Chelsea</a>
+          <a href="#testimonials" data-drawer-link>Reviews</a>
+          <a href="#contact" data-drawer-link>Contact</a>
+        </nav>
+      </div>
+      <div class="hero-drawer-block">
+        <p class="hero-drawer-label">Find Me</p>
+        <nav class="hero-drawer-social">
+          <a href="tel:985-249-6475" data-drawer-link>Call</a>
+          <a href="mailto:chelsea@dazetlaw.com" data-drawer-link>Email</a>
+          <a href="#contact" data-drawer-link>Consult</a>
+        </nav>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Full-viewport editorial hero -->
   <section class="hero" id="home">
-    <div class="hero-bg" aria-hidden="true">
-      <span class="hero-bg-word">Dazet</span>
-      <div class="hero-bg-glow"></div>
+    <!-- z: BG -->
+    <div class="hero-bg-layer anim-fade-in" aria-hidden="true">
+      <img src="./assets/hero-bg.jpg" alt="" class="hero-bg-img">
+      <div class="hero-bg-veil"></div>
     </div>
 
-    <div class="hero-grid">
-      <!-- LEFT -->
-      <div class="hero-side hero-side--left">
-        <p class="hero-eyebrow">Covington &amp; Mandeville</p>
-        <h2 class="hero-side-heading">Personal counsel.<br><span>Real protection.</span></h2>
-        <p class="hero-side-text">You speak with Chelsea—not a case manager. A decade of Louisiana trial experience, focused on the Northshore.</p>
-        <ul class="hero-points">
-          <li>10+ years in Louisiana courts</li>
-          <li>Direct 1-on-1 attorney access</li>
-          <li>Injury · Estate · Business · Family</li>
-        </ul>
-      </div>
-
-      <!-- CENTER PORTRAIT -->
-      <div class="hero-center">
-        <div class="hero-photo">
-          <img src="./assets/dazet-portrait-photo.png" alt="Chelsea Dazet, Attorney at Law">
-        </div>
-        <p class="hero-photo-caption">Chelsea Dazet · Attorney at Law</p>
-      </div>
-
-      <!-- RIGHT -->
-      <div class="hero-side hero-side--right">
-        <p class="hero-eyebrow">Personal Injury &amp; General Law</p>
-        <h1 class="hero-title">
-          Personal Injury?<br>
-          Personal Problem?<br>
-          Get <em>Personal Representation.</em>
-        </h1>
-        <p class="hero-side-text">No one should be intimidated by the legal system. You need an advocate who shows up for you.</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn-bronze hero-cta"><i class="ph ph-calendar-plus"></i> Request Consultation</a>
-          <a href="#practice" class="btn-outline hero-cta">Practice Areas</a>
-        </div>
-        <a class="hero-call" href="tel:985-249-6475"><i class="ph ph-phone"></i> 985-249-6475</a>
+    <!-- z-10: Marquee -->
+    <div class="hero-marquee-wrap anim-fade-up" style="animation-delay:500ms">
+      <div class="hero-marquee">
+        <span class="hero-marquee-item">Chelsea&nbsp;&mdash;&nbsp;Dazet&nbsp;</span>
+        <span class="hero-marquee-item">Chelsea&nbsp;&mdash;&nbsp;Dazet&nbsp;</span>
       </div>
     </div>
+
+    <!-- z-10: Cream rule -->
+    <div class="hero-rule anim-line" aria-hidden="true"></div>
+
+    <!-- z-10: Hero footer (desktop; behind portrait) -->
+    <div class="hero-foot hero-foot--desktop">
+      <div class="anim-fade-up" style="animation-delay:1400ms">
+        <p>Personal Injury</p>
+        <p>Estate Planning</p>
+        <p>Trial-tested counsel</p>
+      </div>
+      <div class="anim-fade-up hero-foot-right" style="animation-delay:1550ms">
+        <p>Covington, Louisiana</p>
+        <p>985-249-6475</p>
+      </div>
+    </div>
+
+    <!-- z-20: Chelsea cutout -->
+    <img
+      src="./assets/dazet-portrait-photo.png"
+      alt="Chelsea Dazet, Attorney at Law"
+      class="hero-portrait anim-rise-in"
+    >
+
+    <!-- z-30: Mobile footer -->
+    <div class="hero-foot hero-foot--mobile">
+      <div class="anim-fade-up" style="animation-delay:1400ms">
+        <p>Personal Injury</p>
+        <p>Estate Planning</p>
+        <p>Trial-tested counsel</p>
+      </div>
+      <div class="anim-fade-up hero-foot-right" style="animation-delay:1550ms">
+        <p>Covington, Louisiana</p>
+        <p>985-249-6475</p>
+      </div>
+    </div>
+
+    <!-- SEO / screen-reader headline (visual headline is marquee + foot) -->
+    <h1 class="sr-only">Personal Injury? Personal Problem? Get Personal Representation. — Chelsea Dazet, Attorney at Law in Covington, LA</h1>
   </section>
 
   <!-- Trust Pillars Strip -->
@@ -375,17 +416,39 @@
   </footer>
 
   <script>
-    // Header Scroll Listener
-    function adjustHeader() {
-      const header = document.querySelector('.site-header');
-      if (window.scrollY > 40) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+    (function () {
+      const header = document.getElementById('site-header');
+      const burger = document.getElementById('hero-burger');
+      const drawer = document.getElementById('hero-drawer');
+      const backdrop = document.getElementById('hero-drawer-backdrop');
+      const closeBtn = document.getElementById('hero-drawer-close');
+
+      function adjustHeader() {
+        if (!header) return;
+        header.classList.toggle('scrolled', window.scrollY > 40);
       }
-    }
-    window.addEventListener('scroll', adjustHeader);
-    adjustHeader();
+      window.addEventListener('scroll', adjustHeader, { passive: true });
+      adjustHeader();
+
+      function setDrawer(open) {
+        if (!drawer || !burger) return;
+        drawer.classList.toggle('is-open', open);
+        drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+        burger.classList.toggle('is-open', open);
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+
+      if (burger) burger.addEventListener('click', function () {
+        setDrawer(!drawer.classList.contains('is-open'));
+      });
+      if (backdrop) backdrop.addEventListener('click', function () { setDrawer(false); });
+      if (closeBtn) closeBtn.addEventListener('click', function () { setDrawer(false); });
+      document.querySelectorAll('[data-drawer-link]').forEach(function (link) {
+        link.addEventListener('click', function () { setDrawer(false); });
+      });
+    })();
   </script>
 </body>
 </html>

@@ -199,53 +199,58 @@ img { max-width: 100%; height: auto; display: block; }
 /* Hero Section */
 .hero {
   background:
-    radial-gradient(ellipse 55% 70% at 18% 70%, rgba(181, 147, 90, 0.10) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 50% at 85% 20%, rgba(18, 24, 32, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 65% at 50% 72%, rgba(181, 147, 90, 0.12) 0%, transparent 68%),
+    radial-gradient(ellipse 35% 45% at 88% 18%, rgba(18, 24, 32, 0.03) 0%, transparent 60%),
     #FAF8F5;
-  padding: 110px 24px 0;
+  padding: 100px 24px 0;
   position: relative;
   overflow: hidden;
-  min-height: min(100vh, 980px);
+  min-height: min(100vh, 940px);
   display: flex;
   align-items: stretch;
 }
 .hero-watermark {
-  top: 48%;
-  left: -4%;
-  transform: translateY(-50%);
-  font-size: 14vw;
-  opacity: 0.7;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(6rem, 16vw, 14rem);
+  opacity: 0.55;
+  text-align: center;
+  width: 100%;
 }
-/* Large editorial name behind the figure */
+/* Large editorial name behind the centered figure */
 .hero-name-watermark {
   position: absolute;
-  left: 2%;
-  bottom: 6%;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
   z-index: 1;
   pointer-events: none;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   font-family: 'Cinzel', serif;
   font-weight: 700;
   text-transform: uppercase;
   line-height: 0.88;
-  letter-spacing: 0.04em;
-  color: rgba(181, 147, 90, 0.09);
+  letter-spacing: 0.06em;
+  color: rgba(181, 147, 90, 0.08);
   user-select: none;
 }
 .hero-name-watermark span:first-child {
-  font-size: clamp(3.5rem, 9vw, 7.5rem);
+  font-size: clamp(3rem, 8vw, 6.5rem);
 }
 .hero-name-watermark span:last-child {
-  font-size: clamp(3.5rem, 9vw, 7.5rem);
-  margin-left: 0.15em;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  margin-left: 0;
 }
 .hero-justitia-bg {
   position: absolute;
-  right: 4%;
-  top: 8%;
-  height: 78%;
-  opacity: 0.045;
+  right: 2%;
+  top: 12%;
+  height: 70%;
+  opacity: 0.04;
   pointer-events: none;
   z-index: 1;
 }
@@ -254,41 +259,49 @@ img { max-width: 100%; height: auto; display: block; }
   width: auto;
   object-fit: contain;
 }
+/* Portrait centered; copy floats as a compact panel on the right */
 .hero-inner {
-  max-width: 1280px;
+  max-width: 1240px;
   width: 100%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.95fr);
-  gap: 24px 36px;
-  align-items: end;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   position: relative;
   z-index: 3;
-  min-height: calc(min(100vh, 980px) - 110px);
+  min-height: calc(min(100vh, 940px) - 100px);
+  align-items: end;
+  justify-items: center;
 }
 .hero-office-img-wrapper {
+  grid-area: 1 / 1;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  justify-self: center;
   align-self: end;
-  width: 100%;
-  min-height: 0;
-  /* Let the figure sit on the bottom edge and feel larger than the column */
-  margin-bottom: -8px;
-  z-index: 4;
+  width: min(460px, 40vw);
+  max-width: 100%;
+  margin-bottom: 0;
+  z-index: 3;
+  pointer-events: none;
 }
-/* Soft warm spotlight behind Chelsea */
+.hero-office-img-wrapper img,
+.hero-office-img-wrapper a {
+  pointer-events: auto;
+}
+/* Soft warm spotlight behind Chelsea — centered */
 .hero-portrait-glow {
   position: absolute;
   left: 50%;
-  bottom: 8%;
+  bottom: 6%;
   transform: translateX(-50%);
-  width: min(92%, 520px);
-  height: min(78%, 620px);
+  width: min(100%, 480px);
+  height: min(80%, 600px);
   background:
-    radial-gradient(ellipse at 50% 70%, rgba(181, 147, 90, 0.28) 0%, rgba(181, 147, 90, 0.08) 42%, transparent 72%);
+    radial-gradient(ellipse at 50% 70%, rgba(181, 147, 90, 0.26) 0%, rgba(181, 147, 90, 0.07) 42%, transparent 72%);
   filter: blur(6px);
   pointer-events: none;
   z-index: 0;
@@ -297,18 +310,18 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-portrait-ring {
   position: absolute;
   left: 50%;
-  bottom: 4%;
+  bottom: 3%;
   transform: translateX(-50%);
-  width: min(88%, 480px);
+  width: min(92%, 420px);
   aspect-ratio: 3 / 4;
-  max-height: 78%;
-  border: 1px solid rgba(181, 147, 90, 0.28);
+  max-height: 76%;
+  border: 1px solid rgba(181, 147, 90, 0.26);
   border-radius: 50% 50% 46% 46%;
   pointer-events: none;
   z-index: 0;
   box-shadow:
-    inset 0 0 40px rgba(181, 147, 90, 0.06),
-    0 0 0 12px rgba(181, 147, 90, 0.04);
+    inset 0 0 40px rgba(181, 147, 90, 0.05),
+    0 0 0 10px rgba(181, 147, 90, 0.035);
 }
 .hero-office-img {
   width: 100%;
@@ -325,7 +338,7 @@ img { max-width: 100%; height: auto; display: block; }
   object-fit: cover;
   object-position: center top;
 }
-/* Real walking cutout — large, full-height, steps slightly into the copy */
+/* Real walking cutout — centered, full-height, no side bias */
 .hero-office-img.hero-portrait-cutout {
   position: relative;
   z-index: 2;
@@ -346,39 +359,40 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-office-img.hero-portrait-cutout img {
   width: auto;
   height: auto;
-  max-width: min(100%, 620px);
-  max-height: min(86vh, 860px);
-  min-height: min(72vh, 700px);
+  max-width: min(100%, 520px);
+  max-height: min(82vh, 800px);
+  min-height: min(68vh, 640px);
   object-fit: contain;
   object-position: center bottom;
-  /* Step toward the copy and up in scale for presence */
-  transform: scale(1.12) translate(4%, 2%);
+  transform: none;
   transform-origin: bottom center;
   filter:
-    drop-shadow(0 28px 36px rgba(18, 24, 32, 0.22))
-    drop-shadow(0 8px 14px rgba(18, 24, 32, 0.12));
+    drop-shadow(0 24px 32px rgba(18, 24, 32, 0.2))
+    drop-shadow(0 6px 12px rgba(18, 24, 32, 0.1));
 }
 .hero-portrait-caption {
   position: relative;
   z-index: 3;
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-top: 10px;
-  margin-bottom: 28px;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 6px;
+  margin-bottom: 20px;
   font-family: 'Cinzel', serif;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #B5935A;
   opacity: 0.9;
+  white-space: nowrap;
 }
 .hero-portrait-line {
   display: block;
-  width: 42px;
+  width: 36px;
   height: 1px;
-  background: linear-gradient(90deg, #B5935A, transparent);
+  background: linear-gradient(90deg, transparent, #B5935A, transparent);
 }
 .hero-office-border {
   position: absolute;
@@ -387,58 +401,87 @@ img { max-width: 100%; height: auto; display: block; }
   border-radius: 8px;
   z-index: -1;
 }
+/* Compact content panel — right of center, vertically mid */
 .hero-content {
+  grid-area: 1 / 1;
+  justify-self: end;
+  align-self: center;
   text-align: left;
-  padding: 40px 0 72px;
+  width: min(400px, 38vw);
+  max-width: 100%;
+  margin: 0 0 8% 0;
+  padding: 28px 28px 28px 32px;
   position: relative;
   z-index: 5;
+  background: linear-gradient(
+    135deg,
+    rgba(250, 248, 245, 0.88) 0%,
+    rgba(250, 248, 245, 0.72) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(181, 147, 90, 0.14);
+  border-radius: 12px;
+  box-shadow:
+    0 18px 40px rgba(18, 24, 32, 0.06),
+    0 1px 0 rgba(255, 255, 255, 0.7) inset;
 }
 .hero-tag {
   color: #B5935A;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 16px;
+  letter-spacing: 1.8px;
+  margin-bottom: 10px;
   display: block;
 }
 .hero h1 {
-  font-size: clamp(2.1rem, 3.2vw, 2.85rem);
-  line-height: 1.2;
+  font-size: clamp(1.65rem, 2.4vw, 2.15rem);
+  line-height: 1.18;
   color: #121820;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 .hero h1 span {
   color: #B5935A;
 }
 .hero p {
   color: #5A6270;
-  font-size: 0.98rem;
-  line-height: 1.75;
-  margin-bottom: 28px;
-  max-width: 34em;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  max-width: none;
 }
 .hero-bullets {
-  margin-bottom: 32px;
+  margin-bottom: 18px;
   list-style: none;
 }
 .hero-bullets li {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
+  gap: 8px;
+  margin-bottom: 8px;
   font-weight: 600;
   color: #1E2530;
-  font-size: 0.92rem;
+  font-size: 0.84rem;
 }
 .hero-bullets li i {
   color: #B5935A;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
+  flex-shrink: 0;
 }
 .hero-buttons {
   display: flex;
-  gap: 16px;
   flex-wrap: wrap;
+  gap: 10px;
+}
+.hero-buttons .btn-bronze,
+.hero-buttons .btn-outline {
+  padding: 11px 14px;
+  font-size: 0.72rem;
+  letter-spacing: 0.6px;
+  min-width: 0 !important;
+  width: auto;
+  flex: 1 1 calc(50% - 5px);
 }
 
 /* Sections */
@@ -1002,47 +1045,49 @@ img { max-width: 100%; height: auto; display: block; }
 @media (max-width: 992px) {
   .hero {
     min-height: auto;
-    padding: 100px 20px 0;
+    padding: 96px 20px 0;
   }
   .hero-inner {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    gap: 8px;
+    gap: 12px;
     min-height: auto;
   }
   .hero-content {
-    text-align: center;
     order: 1;
-    padding: 12px 0 28px;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    width: min(480px, 100%);
+    margin: 0;
+    padding: 22px 20px;
   }
   .hero-buttons {
     justify-content: center;
   }
   .hero-office-img-wrapper {
     order: 2;
-    max-width: 520px;
+    width: min(360px, 78vw);
     margin: 0 auto;
-    min-height: 420px;
+    min-height: 0;
   }
   .hero-name-watermark {
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
     bottom: 2%;
   }
   .hero-office-img.hero-portrait-cutout img {
-    max-width: min(92vw, 420px);
-    max-height: min(70vh, 620px);
-    min-height: 380px;
-    transform: scale(1.06) translateY(2%);
+    max-width: min(88vw, 380px);
+    max-height: min(62vh, 560px);
+    min-height: 320px;
+    transform: none;
   }
   .hero-portrait-caption {
     justify-content: center;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
-  .hero-portrait-line {
-    background: linear-gradient(90deg, transparent, #B5935A, transparent);
-    width: 56px;
+  .hero-bullets li {
+    justify-content: center;
   }
   .hero p {
     margin-left: auto;

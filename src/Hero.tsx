@@ -180,20 +180,48 @@ export default function Hero() {
         </motion.header>
 
         {/*
-          Copy + CTA — exact lower-right zone beside Chelsea
-          (the empty cream area you marked under the previous block).
+          Desktop: left trust info + right CTA — both lower third,
+          open typography (no cards) flanking Chelsea.
         */}
         <motion.div
           className="pointer-events-none absolute inset-0 z-30 hidden sm:block"
           style={scrollMotion ? { opacity: captionOpacity } : undefined}
         >
-          {/*
-            Viewport placement matching the red box:
-            horizontal ~ right third, vertical ~ lower third (beside legs/stride).
-          */}
+          {/* Left — fills the plain field with practice/trust context */}
+          <div
+            className="anim-fade-up pointer-events-auto absolute bottom-[12vh] left-[6vw] w-[min(34vw,360px)] lg:bottom-[11vh] lg:left-[7vw] lg:w-[min(32vw,380px)]"
+            style={{ animationDelay: '1250ms' }}
+          >
+            <p className="font-cinzel text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#B5935A]">
+              Why clients choose Chelsea
+            </p>
+            <p className="mt-3 font-cinzel text-[1.55rem] font-bold leading-[1.25] text-[#121820] lg:text-[1.75rem]">
+              Trial-tested counsel<br />
+              you can reach.
+            </p>
+            <ul className="mt-4 space-y-2.5 font-lora text-[0.98rem] leading-snug text-[#5A6270] lg:text-[1.05rem]">
+              <li className="flex items-start gap-2.5">
+                <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#B5935A]" aria-hidden />
+                <span>Personal Injury &amp; insurance claims</span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#B5935A]" aria-hidden />
+                <span>Estate planning, wills &amp; successions</span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#B5935A]" aria-hidden />
+                <span>Business, family &amp; notary services</span>
+              </li>
+            </ul>
+            <p className="mt-5 font-lora text-[0.9rem] text-[#8a929c]">
+              No case managers — you work with Chelsea.
+            </p>
+          </div>
+
+          {/* Right — primary message + CTA */}
           <div
             className="anim-fade-up pointer-events-auto absolute bottom-[12vh] right-[6vw] w-[min(38vw,420px)] lg:bottom-[11vh] lg:right-[8vw] lg:w-[min(36vw,440px)]"
-            style={{ animationDelay: '1300ms' }}
+            style={{ animationDelay: '1400ms' }}
           >
             <p className="font-cinzel text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#B5935A]">
               Covington &amp; Mandeville

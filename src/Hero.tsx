@@ -180,43 +180,45 @@ export default function Hero() {
         </motion.header>
 
         {/*
-          Copy + CTA beside portrait, lower-right (hips/stride height).
-          Larger type, open layout — no card.
+          Copy + CTA — exact lower-right zone beside Chelsea
+          (the empty cream area you marked under the previous block).
         */}
         <motion.div
           className="pointer-events-none absolute inset-0 z-30 hidden sm:block"
           style={scrollMotion ? { opacity: captionOpacity } : undefined}
         >
-          <div className="relative mx-auto h-full w-full max-w-[1240px] px-8 lg:px-12">
-            <div
-              className="anim-fade-up pointer-events-auto absolute bottom-[11%] right-[4%] w-full max-w-[340px] lg:bottom-[10%] lg:right-[6%] lg:max-w-[380px]"
-              style={{ animationDelay: '1300ms' }}
-            >
-              <p className="font-cinzel text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#B5935A]">
-                Covington &amp; Mandeville
-              </p>
-              <p className="mt-3 font-cinzel text-[1.75rem] font-bold leading-[1.22] text-[#121820] lg:text-[2rem]">
-                Personal counsel.<br />
-                Real protection.
-              </p>
-              <p className="mt-3 max-w-[32ch] font-lora text-[1.05rem] leading-relaxed text-[#5A6270]">
-                10+ years in Louisiana courts · direct 1-on-1 with Chelsea.
-              </p>
-              <div className="mt-7 flex flex-col items-start gap-3">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center justify-center rounded-sm bg-[#B5935A] px-7 py-3.5 font-cinzel text-[0.85rem] font-bold uppercase tracking-wide text-white transition-opacity duration-300 hover:opacity-90"
-                >
-                  Free Consultation
-                </a>
-                <a
-                  href="tel:985-249-6475"
-                  className="inline-flex items-center gap-2 font-cinzel text-[1.05rem] font-bold tracking-wide text-[#121820] transition-opacity duration-300 hover:opacity-60"
-                >
-                  <Phone className="text-[#B5935A]" size={18} strokeWidth={1.75} />
-                  985-249-6475
-                </a>
-              </div>
+          {/*
+            Viewport placement matching the red box:
+            horizontal ~ right third, vertical ~ lower third (beside legs/stride).
+          */}
+          <div
+            className="anim-fade-up pointer-events-auto absolute bottom-[6vh] right-[6vw] w-[min(38vw,420px)] lg:bottom-[5vh] lg:right-[8vw] lg:w-[min(36vw,440px)]"
+            style={{ animationDelay: '1300ms' }}
+          >
+            <p className="font-cinzel text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#B5935A]">
+              Covington &amp; Mandeville
+            </p>
+            <p className="mt-3 font-cinzel text-[1.85rem] font-bold leading-[1.2] text-[#121820] lg:text-[2.15rem]">
+              Personal counsel.<br />
+              Real protection.
+            </p>
+            <p className="mt-3 max-w-[34ch] font-lora text-[1.05rem] leading-relaxed text-[#5A6270] lg:text-[1.1rem]">
+              10+ years in Louisiana courts · direct 1-on-1 with Chelsea.
+            </p>
+            <div className="mt-7 flex flex-col items-start gap-3">
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center rounded-sm bg-[#B5935A] px-7 py-3.5 font-cinzel text-[0.85rem] font-bold uppercase tracking-wide text-white transition-opacity duration-300 hover:opacity-90"
+              >
+                Free Consultation
+              </a>
+              <a
+                href="tel:985-249-6475"
+                className="inline-flex items-center gap-2 font-cinzel text-[1.05rem] font-bold tracking-wide text-[#121820] transition-opacity duration-300 hover:opacity-60"
+              >
+                <Phone className="text-[#B5935A]" size={18} strokeWidth={1.75} />
+                985-249-6475
+              </a>
             </div>
           </div>
         </motion.div>

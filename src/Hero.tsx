@@ -188,22 +188,21 @@ export default function Hero() {
           style={scrollMotion ? { opacity: captionOpacity } : undefined}
         >
           <div className="mx-auto grid w-full max-w-[1200px] grid-cols-[minmax(0,1fr)_minmax(260px,400px)_minmax(0,1fr)] items-end gap-6 px-8 pb-[11vh] lg:gap-10 lg:px-12 lg:pb-[10vh]">
-            {/* LEFT */}
+            {/* LEFT — primary H1 */}
             <div
-              className="anim-fade-up pointer-events-auto w-full max-w-[300px] justify-self-end text-right"
+              className="anim-fade-up pointer-events-auto w-full max-w-[320px] justify-self-end text-right"
               style={{ animationDelay: '1250ms' }}
             >
               <p className="font-cinzel text-[0.72rem] font-bold uppercase tracking-[0.2em] text-[#B5935A]">
-                Why Dazet
+                Covington &amp; Mandeville
               </p>
-              <p className="mt-3 font-cinzel text-[1.7rem] font-bold leading-[1.2] text-[#121820] lg:text-[1.9rem]">
-                Trial-tested counsel<br />
-                you can reach.
-              </p>
+              <h1 className="mt-3 font-cinzel text-[1.9rem] font-bold leading-[1.15] text-[#121820] lg:text-[2.25rem]">
+                Personal counsel.<br />
+                Real protection.
+              </h1>
               <p className="mt-3 font-lora text-[1rem] leading-relaxed text-[#5A6270] lg:text-[1.05rem]">
-                Injury · Estate · Business · Family ·
-                Notary — no case managers, just
-                Chelsea.
+                10+ years in Louisiana courts · direct
+                1-on-1 representation.
               </p>
               <div className="mt-5 ml-auto h-px w-14 bg-[#B5935A]/55" aria-hidden />
             </div>
@@ -211,21 +210,22 @@ export default function Hero() {
             {/* CENTER gutter under portrait */}
             <div aria-hidden className="min-h-[1px]" />
 
-            {/* RIGHT */}
+            {/* RIGHT — support + CTA */}
             <div
               className="anim-fade-up pointer-events-auto w-full max-w-[300px] justify-self-start text-left"
               style={{ animationDelay: '1400ms' }}
             >
               <p className="font-cinzel text-[0.72rem] font-bold uppercase tracking-[0.2em] text-[#B5935A]">
-                Covington &amp; Mandeville
+                Why Dazet
               </p>
-              <p className="mt-3 font-cinzel text-[1.7rem] font-bold leading-[1.2] text-[#121820] lg:text-[1.9rem]">
-                Personal counsel.<br />
-                Real protection.
+              <p className="mt-3 font-cinzel text-[1.45rem] font-bold leading-[1.22] text-[#121820] lg:text-[1.6rem]">
+                Trial-tested counsel<br />
+                you can reach.
               </p>
               <p className="mt-3 font-lora text-[1rem] leading-relaxed text-[#5A6270] lg:text-[1.05rem]">
-                10+ years in Louisiana courts · direct
-                1-on-1 representation.
+                Injury · Estate · Business · Family ·
+                Notary — no case managers, just
+                Chelsea.
               </p>
               <div className="mt-5 flex flex-col items-start gap-2.5">
                 <a

@@ -39,14 +39,42 @@ export default function Hero() {
     offset: ['start start', 'end start'],
   })
 
-  // Restrained scroll motion — elegant, not flashy
-  const portraitScale = useTransform(scrollYProgress, [0, 0.55, 1], [1, 1.05, 0.96])
-  const portraitY = useTransform(scrollYProgress, [0, 1], ['0vh', '-4vh'])
-  const portraitRotateX = useTransform(scrollYProgress, [0, 1], [0, 3])
-  const marqueeOpacity = useTransform(scrollYProgress, [0, 0.75, 1], [1, 0.88, 0.65])
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '12%'])
-  const captionOpacity = useTransform(scrollYProgress, [0, 0.65, 1], [1, 0.95, 0.8])
-  const chromeOpacity = useTransform(scrollYProgress, [0.55, 1], [1, 0.78])
+  /*
+   * Scroll-scrubbed 3D motion (progress 0 → 1):
+   * portrait grows then shrinks; side panels scale/rotate oppositely;
+   * marquee expands then recedes; chrome eases out.
+   */
+  const portraitScale = useTransform(scrollYProgress, [0, 0.35, 0.7, 1], [1, 1.12, 1.04, 0.9])
+  const portraitY = useTransform(scrollYProgress, [0, 0.5, 1], ['0vh', '-3vh', '-8vh'])
+  const portraitRotateX = useTransform(scrollYProgress, [0, 0.45, 1], [0, 6, 10])
+  const portraitRotateY = useTransform(scrollYProgress, [0, 1], [0, -2])
+  const portraitZ = useTransform(scrollYProgress, [0, 0.4, 1], [0, 40, -20])
+
+  const marqueeScale = useTransform(scrollYProgress, [0, 0.4, 1], [1, 1.08, 0.92])
+  const marqueeOpacity = useTransform(scrollYProgress, [0, 0.55, 1], [1, 0.85, 0.4])
+  const marqueeY = useTransform(scrollYProgress, [0, 1], ['0vh', '-6vh'])
+
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '18%'])
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.06])
+
+  // Left panel: grow slightly, tilt toward center, then shrink back
+  const leftScale = useTransform(scrollYProgress, [0, 0.4, 1], [1, 1.06, 0.88])
+  const leftY = useTransform(scrollYProgress, [0, 1], ['0vh', '4vh'])
+  const leftRotateY = useTransform(scrollYProgress, [0, 0.5, 1], [0, 8, 12])
+  const leftX = useTransform(scrollYProgress, [0, 1], ['0vw', '-2vw'])
+  const leftOpacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.92, 0.55])
+
+  // Right panel: complementary grow/shrink + opposite 3D tilt
+  const rightScale = useTransform(scrollYProgress, [0, 0.4, 1], [1, 1.06, 0.88])
+  const rightY = useTransform(scrollYProgress, [0, 1], ['0vh', '4vh'])
+  const rightRotateY = useTransform(scrollYProgress, [0, 0.5, 1], [0, -8, -12])
+  const rightX = useTransform(scrollYProgress, [0, 1], ['0vw', '2vw'])
+  const rightOpacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.92, 0.55])
+
+  const captionOpacity = useTransform(scrollYProgress, [0, 0.65, 1], [1, 0.95, 0.7])
+  const chromeOpacity = useTransform(scrollYProgress, [0.4, 1], [1, 0.65])
+  const chromeY = useTransform(scrollYProgress, [0, 1], ['0px', '-12px'])
+  const chromeScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.99, 0.96])
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
@@ -61,13 +89,20 @@ export default function Hero() {
     <section
       ref={heroRef}
       id="home"
-      className="relative h-[130vh] w-full bg-cream sm:h-[145vh]"
+      className="relative h-[140vh] w-full bg-cream sm:h-[160vh]"
     >
-      <div className="sticky top-0 h-[100dvh] w-full overflow-hidden bg-cream">
+      <div
+        className="sticky top-0 h-[100dvh] w-full overflow-hidden bg-cream"
+        style={{ perspective: 1600 }}
+      >
         {/* ——— Background ——— */}
         <motion.div
           className="anim-fade-in absolute inset-0 z-0 bg-cream"
-          style={scrollMotion ? { y: bgY } : undefined}
+          style={
+            scrollMotion
+              ? { y: bgY, scale: bgScale, transformOrigin: 'center bottom' }
+              : undefined
+          }
           aria-hidden
         >
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_75%,rgba(181,147,90,0.11)_0%,transparent_68%)]" />
@@ -78,7 +113,14 @@ export default function Hero() {
           className="anim-fade-up absolute inset-x-0 top-[11vh] z-10 overflow-hidden sm:top-[12vh]"
           style={{
             animationDelay: '500ms',
-            ...(scrollMotion ? { opacity: marqueeOpacity } : {}),
+            ...(scrollMotion
+              ? {
+                  opacity: marqueeOpacity,
+                  scale: marqueeScale,
+                  y: marqueeY,
+                  transformOrigin: 'center center',
+                }
+              : {}),
           }}
         >
           <div className="dh-marquee-track flex w-max whitespace-nowrap font-cinzel text-[12vh] font-bold leading-none sm:text-[22vh] lg:text-[24vh]">
@@ -94,7 +136,7 @@ export default function Hero() {
         {/* ——— Portrait (hero focus) — full original scale ——— */}
         <div
           className="pointer-events-none absolute inset-0 z-20 flex items-end justify-center pb-[11.5rem] sm:pb-0"
-          style={{ perspective: 1400 }}
+          style={{ perspective: 1600, transformStyle: 'preserve-3d' }}
         >
           <motion.div
             className="anim-rise-in flex h-full w-full items-end justify-center"
@@ -104,6 +146,8 @@ export default function Hero() {
                     scale: portraitScale,
                     y: portraitY,
                     rotateX: portraitRotateX,
+                    rotateY: portraitRotateY,
+                    z: portraitZ,
                     transformOrigin: 'center bottom',
                     transformStyle: 'preserve-3d',
                   }
@@ -113,7 +157,7 @@ export default function Hero() {
             <img
               src={PORTRAIT}
               alt="Chelsea Dazet, Attorney at Law"
-              className="h-full max-h-[calc(100dvh-12rem)] w-auto max-w-[min(92vw,680px)] object-contain object-[center_14%] drop-shadow-[0_22px_36px_rgba(18,24,32,0.14)] sm:max-h-[100dvh] sm:max-w-[min(90vw,680px)] sm:object-[center_18%]"
+              className="h-full max-h-[calc(100dvh-12rem)] w-auto max-w-[min(92vw,680px)] object-contain object-[center_14%] drop-shadow-[0_22px_36px_rgba(18,24,32,0.14)] sm:max-h-[100dvh] sm:max-w-[min(90vw,680px)] sm:object-[center_18%] will-change-transform"
             />
           </motion.div>
         </div>
@@ -121,7 +165,11 @@ export default function Hero() {
         {/* ——— Header ——— */}
         <motion.header
           className="absolute inset-x-0 top-0 z-30 flex items-center justify-between gap-4 px-4 pt-[max(1rem,env(safe-area-inset-top))] sm:gap-6 sm:px-10 sm:pt-6"
-          style={scrollMotion ? { opacity: chromeOpacity } : undefined}
+          style={
+            scrollMotion
+              ? { opacity: chromeOpacity, y: chromeY, scale: chromeScale }
+              : undefined
+          }
         >
           <div className="flex min-w-0 flex-1 items-center gap-5 lg:gap-7">
             <a
@@ -180,17 +228,29 @@ export default function Hero() {
         </motion.header>
 
         {/*
-          Desktop: left trust info + right CTA — both lower third,
-          open typography (no cards) flanking Chelsea.
+          Desktop: left trust + right CTA — scroll grow/shrink + opposite 3D tilt.
         */}
-        <motion.div
+        <div
           className="pointer-events-none absolute inset-0 z-30 hidden sm:block"
-          style={scrollMotion ? { opacity: captionOpacity } : undefined}
+          style={{ perspective: 1600, transformStyle: 'preserve-3d' }}
         >
-          {/* Left — fills the plain field with practice/trust context */}
-          <div
-            className="anim-fade-up pointer-events-auto absolute bottom-[12vh] left-[6vw] w-[min(34vw,360px)] lg:bottom-[11vh] lg:left-[7vw] lg:w-[min(32vw,380px)]"
-            style={{ animationDelay: '1250ms' }}
+          {/* Left — practice/trust */}
+          <motion.div
+            className="anim-fade-up pointer-events-auto absolute bottom-[12vh] left-[6vw] w-[min(34vw,360px)] lg:bottom-[11vh] lg:left-[7vw] lg:w-[min(32vw,380px)] will-change-transform"
+            style={{
+              animationDelay: '1250ms',
+              ...(scrollMotion
+                ? {
+                    scale: leftScale,
+                    y: leftY,
+                    x: leftX,
+                    rotateY: leftRotateY,
+                    opacity: leftOpacity,
+                    transformOrigin: 'right center',
+                    transformStyle: 'preserve-3d',
+                  }
+                : {}),
+            }}
           >
             <p className="font-cinzel text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#B5935A]">
               Why clients choose Chelsea
@@ -216,12 +276,25 @@ export default function Hero() {
             <p className="mt-5 font-lora text-[0.9rem] text-[#8a929c]">
               No case managers — you work with Chelsea.
             </p>
-          </div>
+          </motion.div>
 
           {/* Right — primary message + CTA */}
-          <div
-            className="anim-fade-up pointer-events-auto absolute bottom-[12vh] right-[6vw] w-[min(38vw,420px)] lg:bottom-[11vh] lg:right-[8vw] lg:w-[min(36vw,440px)]"
-            style={{ animationDelay: '1400ms' }}
+          <motion.div
+            className="anim-fade-up pointer-events-auto absolute bottom-[12vh] right-[6vw] w-[min(38vw,420px)] lg:bottom-[11vh] lg:right-[8vw] lg:w-[min(36vw,440px)] will-change-transform"
+            style={{
+              animationDelay: '1400ms',
+              ...(scrollMotion
+                ? {
+                    scale: rightScale,
+                    y: rightY,
+                    x: rightX,
+                    rotateY: rightRotateY,
+                    opacity: rightOpacity,
+                    transformOrigin: 'left center',
+                    transformStyle: 'preserve-3d',
+                  }
+                : {}),
+            }}
           >
             <p className="font-cinzel text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#B5935A]">
               Covington &amp; Mandeville
@@ -248,8 +321,8 @@ export default function Hero() {
                 985-249-6475
               </a>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
         {/* Mobile caption under figure */}
         <motion.div
